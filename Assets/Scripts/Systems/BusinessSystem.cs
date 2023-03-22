@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class BusinessSystem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public LevelSettings _levelSettings { get; }
+    [SerializeField] private GameObject _currentIncome;
+    [SerializeField] private GameObject _currentLevel;
+    
+    
 }
