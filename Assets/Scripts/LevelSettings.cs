@@ -12,6 +12,7 @@ public class LevelSettings : ScriptableObject
     [SerializeField] private int _improvement1;
     [SerializeField] private int _improvement2;
     [SerializeField] private int _currentIncome;
+    
     [SerializeField] private int _currentLevel;
     
     public int GetDelayIncome => _delayIncome;
