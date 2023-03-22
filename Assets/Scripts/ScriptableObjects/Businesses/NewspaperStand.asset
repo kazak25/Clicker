@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ca198870a8baeb408a4664a5e44a3ba, type: 3}
-  m_Name: Business2
+  m_Name: NewspaperStand
   m_EditorClassIdentifier: 
-  _gameObject: {fileID: 0}
-  DelayIncome: 6
-  BasicPrice: 40
-  BaseIncome: 40
-  Improvement1: 1200
-  Improvement2: 100
+  _delayIncome: 3
+  _basicPrice: 3
+  _baseIncome: 3
+  _improvement1: 0
+  _improvement2: 0
+  _currentIncome: 3
+  _currentLevel: 1

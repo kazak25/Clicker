@@ -1693,8 +1693,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 300334812}
+  - component: {fileID: 300334813}
   m_Layer: 5
-  m_Name: Business (2)
+  m_Name: CarShowroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1722,6 +1723,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &300334813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300334811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55b2ce6ee8419e54c97b3d46247fb497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelSettings: {fileID: 11400000, guid: 5a96557df28926a46b36715152bfacd2, type: 2}
 --- !u!1 &335981280
 GameObject:
   m_ObjectHideFlags: 0
@@ -2136,8 +2150,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 434817743}
+  - component: {fileID: 434817744}
   m_Layer: 5
-  m_Name: Business
+  m_Name: NewspaperStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2165,6 +2180,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 197.69998}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &434817744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434817742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55b2ce6ee8419e54c97b3d46247fb497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelSettings: {fileID: 11400000, guid: 33cc40037c51b344e82b7616060e78b4, type: 2}
 --- !u!1 &445240270
 GameObject:
   m_ObjectHideFlags: 0
@@ -9480,8 +9508,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1894727381}
+  - component: {fileID: 1894727382}
   m_Layer: 5
-  m_Name: Business (3)
+  m_Name: GDA Studio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9509,6 +9538,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -106}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1894727382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894727380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55b2ce6ee8419e54c97b3d46247fb497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelSettings: {fileID: 11400000, guid: 967840e986e0e7346a89dcc294895164, type: 2}
 --- !u!1 &1905031755
 GameObject:
   m_ObjectHideFlags: 0
@@ -9607,8 +9649,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1967466432}
+  - component: {fileID: 1967466433}
   m_Layer: 5
-  m_Name: Business (1)
+  m_Name: Barbershop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9636,6 +9679,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 101}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1967466433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967466431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55b2ce6ee8419e54c97b3d46247fb497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelSettings: {fileID: 11400000, guid: 7193afac7cc482940b096098edca102c, type: 2}
 --- !u!1 &1985961382
 GameObject:
   m_ObjectHideFlags: 0
@@ -10425,8 +10481,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2128937072}
+  - component: {fileID: 2128937073}
   m_Layer: 5
-  m_Name: Business (4)
+  m_Name: Darknet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10454,3 +10511,16 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -215}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2128937073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128937071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55b2ce6ee8419e54c97b3d46247fb497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelSettings: {fileID: 11400000, guid: 1d5ccce1d76c22d4da8f400335282f4f, type: 2}

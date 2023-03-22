@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ca198870a8baeb408a4664a5e44a3ba, type: 3}
-  m_Name: Business4
+  m_Name: Darknet
   m_EditorClassIdentifier: 
-  _gameObject: {fileID: 0}
-  DelayIncome: 17
-  BasicPrice: 1000
-  BaseIncome: 1000
-  Improvement1: 15000
-  Improvement2: 100
+  _delayIncome: 30
+  _basicPrice: 5000
+  _baseIncome: 5000
+  _improvement1: 0
+  _improvement2: 0
+  _currentIncome: 5000
+  _currentLevel: 0

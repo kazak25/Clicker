@@ -5,14 +5,14 @@ using UnityEngine;
 public class ConfigSystem : MonoBehaviour
 {
    
-    private int level;
-    private int basicIncome;
-    private int Improvement1;
-    private int Improvement2;
+    private int _level;
+    private int _basicIncome;
+    private int _improvement1;
+    private int _improvement2;
     
     private int RecalculationIncome()
     {
-        var newIncome = level * basicIncome * (1 + Improvement1 + Improvement2);
+        var newIncome = _level * _basicIncome * (1 + _improvement1 + _improvement2);
         return newIncome;
     }
 }
