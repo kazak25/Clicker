@@ -23,8 +23,8 @@ public class LevelSettings : ScriptableObject
     public int GetCurrentLevel => _currentLevel;
     public int GetCurrentIncome => _currentIncome;
 
-    private void ChangeValue(int newvalue, int oldIncome)
+    public void ChangeProfit(int newProfit)
     {
-        
+        _currentIncome = newProfit;
     }
 }
