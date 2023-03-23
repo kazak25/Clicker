@@ -267,6 +267,10 @@ GameObject:
   - component: {fileID: 934353745}
   - component: {fileID: 934353744}
   - component: {fileID: 934353748}
+  - component: {fileID: 934353752}
+  - component: {fileID: 934353751}
+  - component: {fileID: 934353750}
+  - component: {fileID: 934353749}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -370,6 +374,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd98bf48e1d30545aee2e0919b2d144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &934353749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934353743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd98bf48e1d30545aee2e0919b2d144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &934353750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934353743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e564e449bbc33e43bac45be714c4038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &934353751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934353743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 818780dd80c332846bcf1a0872a8fd13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profit: {fileID: 934353750}
+  _configSystem: {fileID: 934353749}
+  _gameView: {fileID: 934353752}
+--- !u!114 &934353752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934353743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 890e3472dec8a404dbec02b2886b9a8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _totalBalance: {fileID: 1629917663}
 --- !u!1 &1038609499
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,6 +1297,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1047361892353725423, guid: 2d97102e52ff421478eb373c84cf8913, type: 3}
+      propertyPath: _profit
+      value: 
+      objectReference: {fileID: 934353750}
     - target: {fileID: 1047361894179757445, guid: 2d97102e52ff421478eb373c84cf8913, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1264,6 +1324,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CarShowroom
       objectReference: {fileID: 0}
+    - target: {fileID: 2908655767501688810, guid: 6cbaeefccf9f7d94c9403d03d414be68, type: 3}
+      propertyPath: _profit
+      value: 
+      objectReference: {fileID: 934353750}
     - target: {fileID: 2908655767501688811, guid: 6cbaeefccf9f7d94c9403d03d414be68, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1459,6 +1523,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4329165007716396753, guid: 69d13ed6dce12c04890fd7d29d846ca4, type: 3}
+      propertyPath: _profit
+      value: 
+      objectReference: {fileID: 934353750}
     - target: {fileID: 4329165007716396767, guid: 69d13ed6dce12c04890fd7d29d846ca4, type: 3}
       propertyPath: m_Name
       value: Barbershop
@@ -1474,6 +1542,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1817359954}
     m_Modifications:
+    - target: {fileID: 3078368946715358872, guid: 9ef8fb959c57a634da0869866915298a, type: 3}
+      propertyPath: m_Colors.m_ColorMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6649086476060989837, guid: 9ef8fb959c57a634da0869866915298a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1482,6 +1554,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7060268920253414883, guid: 9ef8fb959c57a634da0869866915298a, type: 3}
+      propertyPath: _profit
+      value: 
+      objectReference: {fileID: 934353750}
     - target: {fileID: 7060268920253414908, guid: 9ef8fb959c57a634da0869866915298a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1705,6 +1781,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7813939507396466285, guid: 8e419c442ad44ad4eb8cc08778d4eb6a, type: 3}
+      propertyPath: _profit
+      value: 
+      objectReference: {fileID: 934353750}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e419c442ad44ad4eb8cc08778d4eb6a, type: 3}
