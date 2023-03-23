@@ -1,12 +1,9 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
 public class ConfigSystem : MonoBehaviour
 {
-   
     [SerializeField] private List<BusinessParameters> _business = new List<BusinessParameters>();
     
     private Dictionary<string, BusinessParameters> _data = new Dictionary<string, BusinessParameters>();
