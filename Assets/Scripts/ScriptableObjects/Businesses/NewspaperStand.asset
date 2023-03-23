@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca198870a8baeb408a4664a5e44a3ba, type: 3}
   m_Name: NewspaperStand
   m_EditorClassIdentifier: 
+  _name: NewspaperStand
   _delayIncome: 3
   _basicPrice: 3
   _baseIncome: 3

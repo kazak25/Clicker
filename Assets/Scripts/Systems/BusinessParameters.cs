@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class BusinessParameters : MonoBehaviour
 {
-    // [SerializeField] private GameObject _currentIncome;
-    //[SerializeField] private GameObject _currentLevel;
-    [SerializeField] private LevelSettings _levelSettings;
- 
+    [SerializeField] public LevelSettings _levelSettings;
     [SerializeField] private Profit _profit;
+    
+   
 
    public IEnumerator Timer()
    {
@@ -20,7 +19,8 @@ public class BusinessParameters : MonoBehaviour
        var waitingTime = _levelSettings.GetDelayIncome;
        yield return new WaitForSeconds(waitingTime);
         _profit.IncreaseProfit(_levelSettings.GetCurrentIncome);
-       
+        
+
    }
 
    private void Start()
