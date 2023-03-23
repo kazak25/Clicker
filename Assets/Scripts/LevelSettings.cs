@@ -6,6 +6,7 @@ using UnityEngine;
 public class LevelSettings : ScriptableObject
 {
 
+    [SerializeField] private string _name;
     [SerializeField] private int _delayIncome;
     [SerializeField] private int _basicPrice;
     [SerializeField] private int _baseIncome;
@@ -16,6 +17,7 @@ public class LevelSettings : ScriptableObject
     [SerializeField] private int _currentLevel;
     
     public int GetDelayIncome => _delayIncome;
+    public string GetName => _name;
     public int GetBasicPrice => _basicPrice;
     public int GetBaseIncome => _baseIncome;
     public int GetImprovement1 => _improvement1;

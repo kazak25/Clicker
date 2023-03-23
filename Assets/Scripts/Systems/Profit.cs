@@ -6,6 +6,7 @@ using UnityEngine;
 public class Profit : MonoBehaviour
 {
 
+   
    private int _totalBalance;
 
    public void IncreaseProfit(int profit)
