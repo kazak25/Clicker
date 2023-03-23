@@ -1,30 +1,35 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Slider = UnityEngine.UI.Slider;
 
 public class BusinessParameters : MonoBehaviour
 {
-    [SerializeField] public LevelSettings _levelSettings;
+    public LevelSettings _levelSettings;
+    
     [SerializeField] private Profit _profit;
     
-   
+    [SerializeField] private Slider _slider;
+    
+    private float _timer;
 
-   public IEnumerator Timer()
+    private void Start()
+    {
+        _slider.maxValue = _levelSettings.GetDelayIncome;
+    }
+    
+   private void Update()
    {
-       if (_levelSettings.GetCurrentLevel == 0)
-       {
-           yield break;
-       }
-       var waitingTime = _levelSettings.GetDelayIncome;
-       yield return new WaitForSeconds(waitingTime);
-        _profit.IncreaseProfit(_levelSettings.GetCurrentIncome);
-        
-
+       UpdateSlider();
    }
 
-   private void Start()
+   private void UpdateSlider()
    {
-       StartCoroutine(Timer());
+       _timer += Time.deltaTime;
+       _slider.value = _timer;
+       
+       if (_timer>=_levelSettings.GetDelayIncome)
+       {
+           _profit.IncreaseProfit(_levelSettings.GetBasicPrice);
+           _timer=0;
+       }
    }
 }
