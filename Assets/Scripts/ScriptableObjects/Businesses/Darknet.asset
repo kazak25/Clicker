@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca198870a8baeb408a4664a5e44a3ba, type: 3}
   m_Name: Darknet
   m_EditorClassIdentifier: 
+  _name: Darknet
   _delayIncome: 30
   _basicPrice: 5000
   _baseIncome: 5000
