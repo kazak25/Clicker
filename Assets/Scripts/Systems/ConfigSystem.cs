@@ -4,52 +4,42 @@ using UnityEngine;
 
 public class ConfigSystem : MonoBehaviour
 {
-    [SerializeField] private List<BusinessParameters> _business = new List<BusinessParameters>();
+    [SerializeField] private List<BusinessController> _business = new List<BusinessController>();
     
-    private Dictionary<string, BusinessParameters> _data = new Dictionary<string, BusinessParameters>();
+    private Dictionary<string, BusinessController> _data = new Dictionary<string, BusinessController>();
 
-    private int _level;
-    private int _basicIncome;
-    private int _improvement1;
-    private int _improvement2;
-    private int _basicPrice;
+   
 
     private void Awake()
     {
+        
         foreach (var business  in _business)
         {
-            _data.Add(business._levelSettings.GetName,business);  
+            business.Initialize(this);
+            _data.Add(business._businessSettings.GetName,business);  
         }
     }
 
-    private void Start()
+    public Dictionary<string, BusinessController> GetBuisness()
     {
-        var s = _data["Darknet"];
-        Debug.Log(s.name);
-        Debug.Log(s._levelSettings.GetBasicPrice);
-        Debug.Log(s._levelSettings.GetBaseIncome);
-        Debug.Log(s._levelSettings.GetImprovement2);
-        Debug.Log(s._levelSettings.GetImprovement1);
+        return _data;
     }
 
 
-    public void Initialize(int level, int basicPrice,int basicIncome, int improvement1,int improvement2)
+    public int GetNewLevelPrice(int level, int basicPrice)
     {
-        _level = level;
-        _basicIncome = basicIncome;
-        _basicPrice = basicPrice;
-        _improvement1 = improvement1;
-        _improvement2 = improvement2;
+        var newLevelPrice = (1 + level) * basicPrice;
+        return newLevelPrice;
     }
-    public int RecalculationIncome()
+    public int RecalculationIncome(int level, int basicIncome, int improvement1, int improvement2)
     {
-        var newIncome = _level * _basicIncome * (1 + _improvement1 + _improvement2);
+        var newIncome = level * basicIncome * (1 + improvement1 + improvement2);
         return newIncome;
     }
 
-    [UsedImplicitly]
-    public void GetRecalculationIncome()
-    {
-        RecalculationIncome();
-    }
+    // [UsedImplicitly]
+    // public void GetRecalculationIncome()
+    // {
+    //     RecalculationIncome();
+    // }
 }

@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class GameView : MonoBehaviour
+public class BalanceView : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _totalBalance;
     private Profit _profit;
