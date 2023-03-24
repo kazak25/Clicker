@@ -20,3 +20,6 @@ MonoBehaviour:
   _improvement2: 0
   _currentIncome: 3
   _currentLevel: 1
+  _levelPrice: 6
+  _improvementPrice1: 10
+  _improvementPrice2: 20

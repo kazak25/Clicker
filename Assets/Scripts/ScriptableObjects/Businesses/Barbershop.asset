@@ -18,5 +18,8 @@ MonoBehaviour:
   _baseIncome: 40
   _improvement1: 0
   _improvement2: 0
-  _currentIncome: 40
-  _currentLevel: 0
+  _currentIncome: 80
+  _currentLevel: 2
+  _levelPrice: 120
+  _improvementPrice1: 0
+  _improvementPrice2: 0

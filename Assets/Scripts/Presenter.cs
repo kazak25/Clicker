@@ -1,17 +1,24 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Presenter : MonoBehaviour
 {
-  // [SerializeField] private SaveSystem _saveSystem;
-   //[SerializeField] private BusinessParameters businessParameters;
+    
    [SerializeField] private Profit profit;
    [SerializeField] private ConfigSystem _configSystem;
-  // [SerializeField] private UpgradeSystem _upgradeSystem;
-   [SerializeField] private GameView _gameView;
+   [SerializeField] private BalanceView _balanceView;
+   [SerializeField] private List<Timer> _timer = new List<Timer>();
    
    private void Start()
    {
-       _gameView.Initialize(profit);
+       _balanceView.Initialize(profit);
+       
+       foreach (var timer in _timer)
+       {
+           timer.Initialize(_configSystem.GetBuisness());
+           timer.Initialize(profit);
+       }
+      
    }
 
    private void BusinessInitialize()
