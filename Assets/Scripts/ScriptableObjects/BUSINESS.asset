@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ee2a2e8b8491742b22c5aa4441a449, type: 3}
+  m_Name: BUSINESS
+  m_EditorClassIdentifier: 
+  _businessModel:
+  - _name: NEWSPAPERSTAND
+    _delayIncome: 3
+    _basicPrice: 3
+    _baseIncome: 3
+    _improvement1: 0
+    _improvement2: 0
+    _currentIncome: 3
+    _currentLevel: 1
+    _currentLevelPrice: 6
+    _improvementPrice1: 15
+    _improvementPrice2: 20
+  - _name: 
+    _delayIncome: 0
+    _basicPrice: 0
+    _baseIncome: 0
+    _improvement1: 0
+    _improvement2: 0
+    _currentIncome: 0
+    _currentLevel: 0
+    _currentLevelPrice: 0
+    _improvementPrice1: 0
+    _improvementPrice2: 0
+  - _name: 
+    _delayIncome: 0
+    _basicPrice: 0
+    _baseIncome: 0
+    _improvement1: 0
+    _improvement2: 0
+    _currentIncome: 0
+    _currentLevel: 0
+    _currentLevelPrice: 0
+    _improvementPrice1: 0
+    _improvementPrice2: 0
+  - _name: 
+    _delayIncome: 0
+    _basicPrice: 0
+    _baseIncome: 0
+    _improvement1: 0
+    _improvement2: 0
+    _currentIncome: 0
+    _currentLevel: 0
+    _currentLevelPrice: 0
+    _improvementPrice1: 0
+    _improvementPrice2: 0
+  - _name: 
+    _delayIncome: 0
+    _basicPrice: 0
+    _baseIncome: 0
+    _improvement1: 0
+    _improvement2: 0
+    _currentIncome: 0
+    _currentLevel: 0
+    _currentLevelPrice: 0
+    _improvementPrice1: 0
+    _improvementPrice2: 0

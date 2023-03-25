@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "business", menuName = "Businesses")]
-public class BusinessSettings : ScriptableObject
+
+[Serializable]
+public class BusinessModel 
 {
 
     [SerializeField] private string _name;
@@ -12,7 +14,7 @@ public class BusinessSettings : ScriptableObject
     [SerializeField] private int _improvement2;
     [SerializeField] private int _currentIncome;
     [SerializeField] private int _currentLevel;
-    [SerializeField] private int _levelPrice;
+    [SerializeField] private int _currentLevelPrice;
     [SerializeField] private int _improvementPrice1;
     [SerializeField] private int _improvementPrice2;
     
@@ -24,11 +26,20 @@ public class BusinessSettings : ScriptableObject
     public int GetImprovement2 => _improvement2;
     public int GetCurrentLevel => _currentLevel;
     public int GetCurrentIncome => _currentIncome;
-    public int GetLevelPrice => _levelPrice;
+    public int GetCurrentLevelPrice => _currentLevelPrice;
     public int GetImprovementPrice1 => _improvementPrice1;
     public int GetImprovementPrice2 => _improvementPrice2;
     
 
+    public BusinessModel(string name,int currentLevelPrice, int currenLevel, int baseIncome,int delayIncome, int currentIncome)
+    {
+        _name = name;
+        _currentLevelPrice = currentLevelPrice;
+        _currentLevel = currenLevel;
+        _delayIncome = delayIncome;
+        _baseIncome = baseIncome;
+        _currentIncome = currentIncome;
+    }
     public void ChangeProfit(int newProfit)
     {
         _currentIncome = newProfit;
@@ -36,7 +47,7 @@ public class BusinessSettings : ScriptableObject
 
     public void ChangeLevelPrice(int newPrice)
     {
-        _levelPrice = newPrice;
+        _currentLevelPrice = newPrice;
     }
 
     public void ChangeLEvel()

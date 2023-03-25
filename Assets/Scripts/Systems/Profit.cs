@@ -1,12 +1,23 @@
+using System;
+using SimpleEventBus.Disposables;
 using UnityEngine;
 
 public class Profit : MonoBehaviour
 {
    private int _totalBalance;
-   
-   public void IncreaseProfit(int profit)
+   private CompositeDisposable _subscription;
+   public void IncreaseProfit(GetProfitEvent data)
    {
-      _totalBalance += profit;
+      _totalBalance += data._profit;
+   }
+
+   private void Start()
+   {
+      _subscription = new CompositeDisposable()
+      {
+         EventStream.Game.Subscribe<GetProfitEvent>(IncreaseProfit),
+
+      };
    }
 
    public int GetBalance()
@@ -18,5 +29,9 @@ public class Profit : MonoBehaviour
    {
       _totalBalance -= price;
    }
-   
+
+   private void OnDestroy()
+   {
+      _subscription?.Dispose();
+   }
 }
