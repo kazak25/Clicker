@@ -8,15 +8,15 @@ public class ConfigSystem : MonoBehaviour
     
     private Dictionary<string, BusinessController> _data = new Dictionary<string, BusinessController>();
 
-   
+    [SerializeField] private BusinessConfig _businessConfig;
 
     private void Awake()
     {
         
         foreach (var business  in _business)
         {
-            business.Initialize(this);
-            _data.Add(business._businessSettings.GetName,business);  
+           // business.Initialize(this);
+           // _data.Add(business.GetBusinessModelConfig.GetName,business);  
         }
     }
 

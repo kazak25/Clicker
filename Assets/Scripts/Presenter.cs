@@ -7,17 +7,13 @@ public class Presenter : MonoBehaviour
    [SerializeField] private Profit profit;
    [SerializeField] private ConfigSystem _configSystem;
    [SerializeField] private BalanceView _balanceView;
-   [SerializeField] private List<Timer> _timer = new List<Timer>();
+   [SerializeField] private Timer _timer;
    
    private void Start()
    {
        _balanceView.Initialize(profit);
+       //_timer.Initialize(profit);
        
-       foreach (var timer in _timer)
-       {
-           timer.Initialize(_configSystem.GetBuisness());
-           timer.Initialize(profit);
-       }
       
    }
 
