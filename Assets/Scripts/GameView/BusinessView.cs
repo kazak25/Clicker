@@ -7,7 +7,6 @@ public class BusinessView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _level;
     [SerializeField] private TextMeshProUGUI _income;
     [SerializeField] private TextMeshProUGUI _levelUpPrice;
-
     [SerializeField] private BusinessController _businessController;
 
     private void View()

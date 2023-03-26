@@ -7,7 +7,6 @@ public class ImprovementModel
    public bool IsBought = false;
    public float FinalBoost;
    
-   
    [SerializeField] public string Name;
    [SerializeField] public float Price;
    [SerializeField]  public float Boost;
@@ -15,7 +14,6 @@ public class ImprovementModel
    public void ChangeCondition()
    {
       if (IsBought) IsBought = false;
-      
    }
    
 

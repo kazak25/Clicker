@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BusinessController : MonoBehaviour
 {
+    public BusinessModel BusinessModel => _model;
+    
     // public BusinessSettings _businessSettings { get; private set; }
     [SerializeField] private Timer _timer;
     [SerializeField] private ImprovementController[] _improvementControllers;
@@ -15,8 +17,6 @@ public class BusinessController : MonoBehaviour
     private int _price;
     private bool _isLevel;
 
-    public BusinessModel BusinessModel => _model;
-    
     private void Start()
     {
         _timer.Initialize(_model);
@@ -33,7 +33,6 @@ public class BusinessController : MonoBehaviour
             _improvementControllers[i].Initialize(_model.GetImprovemnts[i]);
         }
     }
-    
     public void GetProfit(GetProfitEvent profit)
     {
         _profit = profit.GetProfit();
