@@ -1,8 +1,6 @@
-using System;
 using JetBrains.Annotations;
 using SimpleEventBus.Disposables;
 using UnityEngine;
-using Slider = UnityEngine.UI.Slider;
 
 public class BusinessController : MonoBehaviour
 {
