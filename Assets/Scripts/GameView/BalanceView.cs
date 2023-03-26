@@ -4,6 +4,7 @@ using UnityEngine;
 public class BalanceView : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _totalBalance;
+    
     private Profit _profit;
 
     public void Initialize(Profit profit)

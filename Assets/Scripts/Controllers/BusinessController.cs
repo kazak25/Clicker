@@ -66,7 +66,7 @@ public class BusinessController : MonoBehaviour
     [UsedImplicitly]
     public void ChangeIncome()
     {
-        if (_profit.GetBalance()<_price)
+        if (_profit.GetBalance() < _price)
         {
             return;
         }

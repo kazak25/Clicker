@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ConfigSystem : MonoBehaviour
 {
-    private Dictionary<string, BusinessController> _data = new Dictionary<string, BusinessController>();
 
     public int GetNewLevelPrice(int level, int basicPrice)
     {
