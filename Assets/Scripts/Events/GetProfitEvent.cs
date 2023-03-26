@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using SimpleEventBus.Events;
 using UnityEngine;
-using UnityEngine.UIElements;
-using EventBase = SimpleEventBus.Events.EventBase;
 
 public class GetProfitEvent : EventBase
 {
-    public int _profit { get; }
+    public Profit _Profit;
 
-    public GetProfitEvent(int profit)
+    public GetProfitEvent(Profit profit)
     {
-        _profit = profit;
+        _Profit = profit;
     }
+    public Profit GetProfit()
+    {
+        return _Profit;
+    }
+
 }
