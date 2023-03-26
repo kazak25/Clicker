@@ -11,9 +11,9 @@ public class ImprovementModel
    public float FinalBoost;
    
    
-   [SerializeField] public string Name;
-   [SerializeField] public float Price;
-   [SerializeField]  public float Boost;
+   public string Name;
+   public float Price;
+   public float Boost;
    
    public void ChangeCondition()
    {
