@@ -17,54 +17,89 @@ MonoBehaviour:
     _delayIncome: 3
     _basicPrice: 3
     _baseIncome: 3
-    _improvement1: 0
-    _improvement2: 0
-    _currentIncome: 3
-    _currentLevel: 1
-    _currentLevelPrice: 6
-    _improvementPrice1: 15
-    _improvementPrice2: 20
-  - _name: 
-    _delayIncome: 0
-    _basicPrice: 0
-    _baseIncome: 0
-    _improvement1: 0
-    _improvement2: 0
+    _currentIncome: 7.2
+    _currentLevel: 2
+    _currentLevelPrice: 9
+    _imrpovements:
+    - IsBought: 0
+      FinalBoost: 0.2
+      Name: RANGE EXPANSION
+      Price: 10
+      Boost: 0.2
+    - IsBought: 0
+      FinalBoost: 0
+      Name: INCREASE IN OUTLETS
+      Price: 75
+      Boost: 0.3
+  - _name: BARBERSHOP
+    _delayIncome: 6
+    _basicPrice: 40
+    _baseIncome: 40
     _currentIncome: 0
     _currentLevel: 0
     _currentLevelPrice: 0
-    _improvementPrice1: 0
-    _improvementPrice2: 0
-  - _name: 
-    _delayIncome: 0
-    _basicPrice: 0
-    _baseIncome: 0
-    _improvement1: 0
-    _improvement2: 0
+    _imrpovements:
+    - IsBought: 0
+      FinalBoost: 0
+      Name: FLYERS DISTRIBUTION
+      Price: 1200
+      Boost: 0.15
+    - IsBought: 0
+      FinalBoost: 0
+      Name: STAFF TRAINING
+      Price: 2400
+      Boost: 0.3
+  - _name: CARSHOWROOM
+    _delayIncome: 10
+    _basicPrice: 200
+    _baseIncome: 200
     _currentIncome: 0
     _currentLevel: 0
-    _currentLevelPrice: 0
-    _improvementPrice1: 0
-    _improvementPrice2: 0
-  - _name: 
-    _delayIncome: 0
-    _basicPrice: 0
-    _baseIncome: 0
-    _improvement1: 0
-    _improvement2: 0
+    _currentLevelPrice: 400
+    _imrpovements:
+    - IsBought: 0
+      FinalBoost: 0
+      Name: ADVERTISING ON TV
+      Price: 6000
+      Boost: 0.1
+    - IsBought: 0
+      FinalBoost: 0
+      Name: TRADE-IN SYSTEM
+      Price: 12000
+      Boost: 0.2
+  - _name: GDA Studio
+    _delayIncome: 17
+    _basicPrice: 1000
+    _baseIncome: 1000
     _currentIncome: 0
     _currentLevel: 0
-    _currentLevelPrice: 0
-    _improvementPrice1: 0
-    _improvementPrice2: 0
-  - _name: 
-    _delayIncome: 0
-    _basicPrice: 0
-    _baseIncome: 0
-    _improvement1: 0
-    _improvement2: 0
+    _currentLevelPrice: 2000
+    _imrpovements:
+    - IsBought: 0
+      FinalBoost: 0
+      Name: INSTA TARGET
+      Price: 15000
+      Boost: 0.05
+    - IsBought: 0
+      FinalBoost: 0
+      Name: PERSONAL CONSULTATION
+      Price: 30000
+      Boost: 0.1
+  - _name: DARKNET
+    _delayIncome: 30
+    _basicPrice: 5000
+    _baseIncome: 5000
     _currentIncome: 0
     _currentLevel: 0
-    _currentLevelPrice: 0
-    _improvementPrice1: 0
-    _improvementPrice2: 0
+    _currentLevelPrice: 10000
+    _imrpovements:
+    - IsBought: 0
+      FinalBoost: 0
+      Name: ORGANS SALES
+      Price: 100000
+      Boost: 0.03
+    - IsBought: 0
+      FinalBoost: 0
+      Name: PEOPLES SALING
+      Price: 300000
+      Boost: 0.09

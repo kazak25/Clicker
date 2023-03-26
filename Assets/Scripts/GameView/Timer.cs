@@ -20,7 +20,6 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         _slider.maxValue = _model.GetDelayIncome;
-       
     }
 
     public void Initialize(Profit profit)
@@ -49,7 +48,7 @@ public class Timer : MonoBehaviour
        
         if (_timer>=_model.GetDelayIncome)
         {
-            var eventDataRequest = new GetProfitEvent(_model.GetCurrentIncome);
+            var eventDataRequest = new GetIncomeEvent(_model.GetCurrentIncome);
             EventStream.Game.Publish(eventDataRequest);
             _timer=0;
         }
