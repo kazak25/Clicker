@@ -17,6 +17,8 @@ public class BusinesSpawner : MonoBehaviour
 
     [SerializeField] private Timer _timer; //сделаем через EventBus
 
+    [SerializeField] private ConfigSystem _configSystem;
+
     private void Awake()
     {
         SpawnBusiness();
@@ -27,7 +29,7 @@ public class BusinesSpawner : MonoBehaviour
         foreach (var businessModel in _businessesConfig.BuisnessModels)
         {
             var business = Instantiate(_businessPrefab, _parent);
-            business.Initialize(businessModel);
+            business.Initialize(businessModel,_configSystem);
             _timer.Initialize(_profit);
         }
     }
