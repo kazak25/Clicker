@@ -17,16 +17,16 @@ MonoBehaviour:
     _delayIncome: 3
     _basicPrice: 3
     _baseIncome: 3
-    _currentIncome: 7.2
-    _currentLevel: 2
-    _currentLevelPrice: 9
+    _currentIncome: 19999
+    _currentLevel: 8
+    _currentLevelPrice: 27
     _imrpovements:
-    - IsBought: 0
-      FinalBoost: 0.2
+    - IsBought: 1
+      FinalBoost: 0
       Name: RANGE EXPANSION
       Price: 10
       Boost: 0.2
-    - IsBought: 0
+    - IsBought: 1
       FinalBoost: 0
       Name: INCREASE IN OUTLETS
       Price: 75
@@ -35,16 +35,16 @@ MonoBehaviour:
     _delayIncome: 6
     _basicPrice: 40
     _baseIncome: 40
-    _currentIncome: 0
-    _currentLevel: 0
-    _currentLevelPrice: 0
+    _currentIncome: 208
+    _currentLevel: 4
+    _currentLevelPrice: 200
     _imrpovements:
-    - IsBought: 0
+    - IsBought: 1
       FinalBoost: 0
       Name: FLYERS DISTRIBUTION
       Price: 1200
       Boost: 0.15
-    - IsBought: 0
+    - IsBought: 1
       FinalBoost: 0
       Name: STAFF TRAINING
       Price: 2400
@@ -53,16 +53,16 @@ MonoBehaviour:
     _delayIncome: 10
     _basicPrice: 200
     _baseIncome: 200
-    _currentIncome: 0
-    _currentLevel: 0
+    _currentIncome: 240
+    _currentLevel: 1
     _currentLevelPrice: 400
     _imrpovements:
-    - IsBought: 0
+    - IsBought: 1
       FinalBoost: 0
       Name: ADVERTISING ON TV
       Price: 6000
       Boost: 0.1
-    - IsBought: 0
+    - IsBought: 1
       FinalBoost: 0
       Name: TRADE-IN SYSTEM
       Price: 12000
@@ -71,16 +71,16 @@ MonoBehaviour:
     _delayIncome: 17
     _basicPrice: 1000
     _baseIncome: 1000
-    _currentIncome: 0
-    _currentLevel: 0
-    _currentLevelPrice: 2000
+    _currentIncome: 11000
+    _currentLevel: 10
+    _currentLevelPrice: 11000
     _imrpovements:
-    - IsBought: 0
+    - IsBought: 1
       FinalBoost: 0
       Name: INSTA TARGET
       Price: 15000
       Boost: 0.05
-    - IsBought: 0
+    - IsBought: 1
       FinalBoost: 0
       Name: PERSONAL CONSULTATION
       Price: 30000
@@ -89,9 +89,9 @@ MonoBehaviour:
     _delayIncome: 30
     _basicPrice: 5000
     _baseIncome: 5000
-    _currentIncome: 0
-    _currentLevel: 0
-    _currentLevelPrice: 10000
+    _currentIncome: 50000
+    _currentLevel: 10
+    _currentLevelPrice: 55000
     _imrpovements:
     - IsBought: 0
       FinalBoost: 0

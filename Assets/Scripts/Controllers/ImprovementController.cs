@@ -16,12 +16,7 @@ public class ImprovementController : MonoBehaviour
    
 
    private float _price;
-
-   private void Start()
-   {
-      _improvementModel.ChangeCondition();
-     // _improvementModel.FinalBoost = 0;
-   }
+   
 
    public void Initialize(Profit profit)
    {
@@ -44,9 +39,9 @@ public class ImprovementController : MonoBehaviour
          return;
       }
       
+      _improvementModel.ChangeCondition();
       _businessController.ChangeCurrentIncome();
       _profit.DecreaseTotalBalance(_price);
-      _improvementModel.ChangeCondition();
    }
    
    [UsedImplicitly]

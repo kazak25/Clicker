@@ -17,8 +17,7 @@ public class ImprovementModel
    
    public void ChangeCondition()
    {
-      if (IsBought) IsBought = false;
-      
+      IsBought = true;
    }
    
 
