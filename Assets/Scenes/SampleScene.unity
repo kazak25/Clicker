@@ -370,7 +370,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profit: {fileID: 728770958}
-  _configSystem: {fileID: 728770955}
   _balanceView: {fileID: 934353748}
 --- !u!1 &934353743
 GameObject:
@@ -768,7 +767,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 8
   m_Viewport: {fileID: 1461547783}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 1038609501}

@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -9,7 +10,8 @@ public class BalanceView : MonoBehaviour
 
     void Update()
     {
-        var balance = _profit.GetBalance().ToString();
+        // var balance = Convert.ToInt32(_profit.GetBalance());
+        var balance = Convert.ToInt32(_profit.GetBalance().ToString());
         _totalBalance.text = "Balance: " +  balance + "$";
     }
     public void Initialize(Profit profit)

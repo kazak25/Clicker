@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Profit : MonoBehaviour
 {
-   private float _totalBalance;
+   private int _totalBalance;
    private CompositeDisposable _subscription;
    public void IncreaseProfit(GetIncomeEvent data)
    {
@@ -23,12 +23,12 @@ public class Profit : MonoBehaviour
       };
    }
 
-   public float GetBalance()
+   public int GetBalance()
    {
       return _totalBalance;
    }
 
-   public void DecreaseTotalBalance(float price)
+   public void DecreaseTotalBalance(int price)
    {
       _totalBalance -= price;
    }

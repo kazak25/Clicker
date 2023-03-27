@@ -8,7 +8,7 @@ public class ImprovementModel
    public float FinalBoost;
   
    public string Name;
-   public float Price;
+   public int Price;
    public float Boost;
    
    public void ChangeCondition()

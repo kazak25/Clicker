@@ -9,10 +9,10 @@ public class ConfigSystem : MonoBehaviour
     public int GetNewLevelPrice(int level, int basicPrice)
     {
         var newLevelPrice = (1 + level) * basicPrice;
-        return newLevelPrice;
+        return (int)newLevelPrice;
     }
     
-    public float RecalculationIncome(float level, float basicIncome, ImprovementController[] improvements)
+    public int RecalculationIncome(float level, float basicIncome, ImprovementController[] improvements)
     {
        
         var firstImprovementBoost =
@@ -22,6 +22,6 @@ public class ConfigSystem : MonoBehaviour
         
         var newIncome = level * basicIncome * (1 + firstImprovementBoost + secondImprovementBoost);
         
-        return newIncome;
+        return (int)newIncome;
     }
 }

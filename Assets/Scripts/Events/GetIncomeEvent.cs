@@ -6,9 +6,9 @@ using EventBase = SimpleEventBus.Events.EventBase;
 
 public class GetIncomeEvent : EventBase
 {
-    public float _profit { get; }
+    public int _profit { get; }
 
-    public GetIncomeEvent(float profit)
+    public GetIncomeEvent(int profit)
     {
         _profit = profit;
     }
