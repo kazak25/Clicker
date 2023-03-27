@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -8,7 +6,6 @@ public class ImprovementView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _improvementName;
     [SerializeField] private TextMeshProUGUI _price;
     [SerializeField] private TextMeshProUGUI _boost;
-
     [SerializeField] private ImprovementController improvementController;
 
     private void View()

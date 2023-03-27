@@ -1,20 +1,14 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using JetBrains.Annotations;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ImprovementController : MonoBehaviour
 {
-   [SerializeField] private BusinessController _businessController;
    public ImprovementModel GetImprovementModel => _improvementModel;
    
-   private ImprovementModel _improvementModel;
-
-   private Profit _profit;
+   [SerializeField] private BusinessController _businessController;
    
-
+   private ImprovementModel _improvementModel;
+   private Profit _profit;
    private float _price;
    
 
