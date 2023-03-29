@@ -5,24 +5,34 @@ using UnityEngine;
 [Serializable]
 public class BusinessModel 
 {
-    public int GetDelayIncome => _delayIncome;
+    public float GetDelayIncome => _delayIncome;
     public string GetName => _name;
-    public int GetBasicPrice => _basicPrice;
-    public int GetBaseIncome => _baseIncome; 
-    public int GetCurrentLevel => _currentLevel;
-    public int GetCurrentIncome => _currentIncome;
-    public int GetCurrentLevelPrice => _currentLevelPrice;
+    public float GetBasicPrice => _basicPrice;
+    public float GetBaseIncome => _baseIncome; 
+    public float GetCurrentLevel => _currentLevel;
+    public float GetCurrentIncome => _currentIncome;
+    public float GetCurrentLevelPrice => _currentLevelPrice;
     public ImprovementModel[] GetImprovemnts => _imrpovements;
     
     [SerializeField] private string _name;
-    [SerializeField] private int _delayIncome;
-    [SerializeField] private int _basicPrice;
-    [SerializeField] private int _baseIncome;
-    [SerializeField] private int _currentIncome;
-    [SerializeField] private int _currentLevel;
-    [SerializeField] private int _currentLevelPrice;
+    [SerializeField] private float _delayIncome;
+    [SerializeField] private float _basicPrice;
+    [SerializeField] private float _baseIncome;
+    [SerializeField] private float _currentIncome;
+    [SerializeField] private float _currentLevel;
+    [SerializeField] private float _currentLevelPrice;
     [SerializeField] private ImprovementModel[] _imrpovements;
 
+    public BusinessModel(string name, float incomeDelay, float currentLevel, float baseIncome, float currentIncome, float currentLevelPrice, ImprovementModel[] improvementModels)
+    {
+        _name = name;
+        _delayIncome = incomeDelay;
+        _currentLevel = currentLevel;
+        _baseIncome = baseIncome;
+        _currentIncome = currentIncome;
+        _currentLevelPrice = currentLevelPrice;
+        _imrpovements = improvementModels;
+    }
     public void ChangeProfit(int newProfit)
     {
         _currentIncome = newProfit;
