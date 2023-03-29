@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BusinesSpawner : MonoBehaviour
@@ -8,19 +9,26 @@ public class BusinesSpawner : MonoBehaviour
     [SerializeField] private Profit _profit; //Сделать через EventBus
     [SerializeField] private Timer _timer; //сделаем через EventBus
     [SerializeField] private ConfigSystem _configSystem;
+    
+    private readonly List<BusinessController> _controllers = new ();
 
-    private void Awake()
+    public void SpawnBusiness(BusinessModel[] businessModels)
     {
-        SpawnBusiness();
-    }
-
-    private void SpawnBusiness()
-    {
-        foreach (var businessModel in _businessesConfig.BuisnessModels)
+        foreach (var businessModel in businessModels)
         {
             var business = Instantiate(_businessPrefab, _parent);
-            business.Initialize(businessModel,_configSystem);
+            business.Initialize(businessModel, _configSystem);
             _timer.Initialize(_profit);
+            _controllers.Add(business);
         }
     }
+    public void DeleteComtrollers()
+    {
+        foreach (var controller in _controllers)
+        {
+            Destroy(controller.gameObject);
+        }
+        _controllers.Clear();
+    }
+    
 }

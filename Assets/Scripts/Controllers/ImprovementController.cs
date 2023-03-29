@@ -9,7 +9,7 @@ public class ImprovementController : MonoBehaviour
    
    private ImprovementModel _improvementModel;
    private Profit _profit;
-   private int _price;
+   private float _price;
    
 
    public void Initialize(Profit profit)

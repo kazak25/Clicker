@@ -12,94 +12,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ee2a2e8b8491742b22c5aa4441a449, type: 3}
   m_Name: BUSINESS
   m_EditorClassIdentifier: 
-  _businessModel:
-  - _name: NEWSPAPERSTAND
-    _delayIncome: 3
-    _basicPrice: 3
-    _baseIncome: 3
-    _currentIncome: 19999
-    _currentLevel: 8
-    _currentLevelPrice: 27
-    _imrpovements:
-    - IsBought: 1
-      FinalBoost: 0
-      Name: RANGE EXPANSION
-      Price: 10
-      Boost: 0.2
-    - IsBought: 1
-      FinalBoost: 0
-      Name: INCREASE IN OUTLETS
-      Price: 75
-      Boost: 0.3
-  - _name: BARBERSHOP
-    _delayIncome: 6
-    _basicPrice: 40
-    _baseIncome: 40
-    _currentIncome: 208
-    _currentLevel: 4
-    _currentLevelPrice: 200
-    _imrpovements:
-    - IsBought: 1
-      FinalBoost: 0
-      Name: FLYERS DISTRIBUTION
-      Price: 1200
-      Boost: 0.15
-    - IsBought: 1
-      FinalBoost: 0
-      Name: STAFF TRAINING
-      Price: 2400
-      Boost: 0.3
-  - _name: CARSHOWROOM
-    _delayIncome: 10
-    _basicPrice: 200
-    _baseIncome: 200
-    _currentIncome: 240
-    _currentLevel: 1
-    _currentLevelPrice: 400
-    _imrpovements:
-    - IsBought: 1
-      FinalBoost: 0
-      Name: ADVERTISING ON TV
-      Price: 6000
-      Boost: 0.1
-    - IsBought: 1
-      FinalBoost: 0
-      Name: TRADE-IN SYSTEM
-      Price: 12000
-      Boost: 0.2
-  - _name: GDA Studio
-    _delayIncome: 17
-    _basicPrice: 1000
-    _baseIncome: 1000
-    _currentIncome: 11000
-    _currentLevel: 10
-    _currentLevelPrice: 11000
-    _imrpovements:
-    - IsBought: 1
-      FinalBoost: 0
-      Name: INSTA TARGET
-      Price: 15000
-      Boost: 0.05
-    - IsBought: 1
-      FinalBoost: 0
-      Name: PERSONAL CONSULTATION
-      Price: 30000
-      Boost: 0.1
-  - _name: DARKNET
-    _delayIncome: 30
-    _basicPrice: 5000
-    _baseIncome: 5000
-    _currentIncome: 50000
-    _currentLevel: 10
-    _currentLevelPrice: 55000
-    _imrpovements:
-    - IsBought: 0
-      FinalBoost: 0
-      Name: ORGANS SALES
-      Price: 100000
-      Boost: 0.03
-    - IsBought: 0
-      FinalBoost: 0
-      Name: PEOPLES SALING
-      Price: 300000
-      Boost: 0.09
+  _configBusinessModels:
+  - _name: Bakery
+    _level: 1
+    _incomeDelay: 3
+    _price: 3
+    _income: 3
+    _typesImprovement:
+    - _isPurchased: 0
+      _name: "\u041A\u041E\u041B\u0411\u0410\u0421\u0410"
+      _price: 0
+      _boostIncome: 0
+    - _isPurchased: 0
+      _name: "\u041A\u0423\u0420\u042C\u0415\u0420 \u041C\u0410\u041A\u0421\u0418\u041C"
+      _price: 300
+      _boostIncome: 0
+  - _name: 
+    _level: 0
+    _incomeDelay: 0
+    _price: 0
+    _income: 0
+    _typesImprovement: []
+  - _name: 
+    _level: 0
+    _incomeDelay: 0
+    _price: 0
+    _income: 0
+    _typesImprovement: []
+  - _name: 
+    _level: 0
+    _incomeDelay: 0
+    _price: 0
+    _income: 0
+    _typesImprovement: []
+  - _name: 
+    _level: 0
+    _incomeDelay: 0
+    _price: 0
+    _income: 0
+    _typesImprovement: []
