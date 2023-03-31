@@ -6,17 +6,18 @@ public class BalanceView : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _totalBalance;
     
-    private Profit _profit;
+    private ProfitSystem _profitSystem;
 
     void Update()
     {
         // var balance = Convert.ToInt32(_profit.GetBalance());
-        var balance = Convert.ToInt32(_profit.GetBalance().ToString());
+        Debug.Log(_profitSystem.GetBalance());
+        var balance = Convert.ToInt32(_profitSystem.GetBalance().ToString());
         _totalBalance.text = "Balance: " +  balance + "$";
     }
-    public void Initialize(Profit profit)
+    public void Initialize(ProfitSystem profitSystem)
     {
-        _profit = profit;
+        _profitSystem = profitSystem;
     }
     
    

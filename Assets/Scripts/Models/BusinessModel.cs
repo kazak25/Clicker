@@ -5,46 +5,54 @@ using UnityEngine;
 [Serializable]
 public class BusinessModel 
 {
-    public float GetDelayIncome => _delayIncome;
-    public string GetName => _name;
-    public float GetBasicPrice => _basicPrice;
-    public float GetBaseIncome => _baseIncome; 
-    public float GetCurrentLevel => _currentLevel;
-    public float GetCurrentIncome => _currentIncome;
-    public float GetCurrentLevelPrice => _currentLevelPrice;
-    public ImprovementModel[] GetImprovemnts => _imrpovements;
+    // public float GetDelayIncome => _delayIncome;
+    // public string GetName => _name;
+    // public float GetBasicPrice => _basicPrice;
+    // public float GetBaseIncome => _baseIncome; 
+    // public float GetCurrentLevel => _currentLevel;
+    // public float GetCurrentIncome => _currentIncome;
+    // public float GetCurrentLevelPrice => _currentLevelPrice;
+    // public ImprovementModel[] GetImprovemnts => _imrpovements;
     
-    [SerializeField] private string _name;
-    [SerializeField] private float _delayIncome;
-    [SerializeField] private float _basicPrice;
-    [SerializeField] private float _baseIncome;
-    [SerializeField] private float _currentIncome;
-    [SerializeField] private float _currentLevel;
-    [SerializeField] private float _currentLevelPrice;
-    [SerializeField] private ImprovementModel[] _imrpovements;
+     public string GetName { get; set; }
+     public float GetDelayIncome { get; set; }
+     public float GetBasicPrice { get; set; }
+     
+     public float GetBaseIncome { get; set; }
+     
+     public float GetCurrentIncome { get; set; }
+     
+     public float GetCurrentLevel{ get; set; }
+     
+     public float GetCurrentLevelPrice{ get; set; }
+     
+     public ImprovementModel[] GetImprovemnts;
+     
+    
+     
 
-    public BusinessModel(string name, float incomeDelay, float currentLevel, float baseIncome, float currentIncome, float currentLevelPrice, ImprovementModel[] improvementModels)
+    public BusinessModel(string name, float incomeDelay, float currentLevel, float baseIncome, float currentIncome, float basicPrice, ImprovementModel[] improvementModels)
     {
-        _name = name;
-        _delayIncome = incomeDelay;
-        _currentLevel = currentLevel;
-        _baseIncome = baseIncome;
-        _currentIncome = currentIncome;
-        _currentLevelPrice = currentLevelPrice;
-        _imrpovements = improvementModels;
+        GetName = name;
+        GetDelayIncome = incomeDelay;
+        GetCurrentLevel = currentLevel;
+        GetBaseIncome = baseIncome;
+        GetCurrentIncome = currentIncome;
+        GetBasicPrice = basicPrice;
+        GetImprovemnts = improvementModels;
     }
     public void ChangeProfit(int newProfit)
     {
-        _currentIncome = newProfit;
+        GetCurrentIncome = newProfit;
     }
 
     public void ChangeLevelPrice(int newPrice)
     {
-        _currentLevelPrice = newPrice;
+        GetCurrentLevelPrice = newPrice;
     }
 
     public void ChangeLEvel()
     {
-        _currentLevel++;
+        GetCurrentLevel++;
     }
 }

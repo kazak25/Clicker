@@ -13,41 +13,73 @@ MonoBehaviour:
   m_Name: BUSINESS
   m_EditorClassIdentifier: 
   _configBusinessModels:
-  - _name: Bakery
+  - _name: NEWSTANDPAPER
     _level: 1
     _incomeDelay: 3
     _price: 3
     _income: 3
     _typesImprovement:
     - _isPurchased: 0
-      _name: "\u041A\u041E\u041B\u0411\u0410\u0421\u0410"
-      _price: 0
-      _boostIncome: 0
+      _name: RANGE EXPANSION
+      _price: 50
+      _boostIncome: 0.2
     - _isPurchased: 0
-      _name: "\u041A\u0423\u0420\u042C\u0415\u0420 \u041C\u0410\u041A\u0421\u0418\u041C"
-      _price: 300
-      _boostIncome: 0
-  - _name: 
+      _name: INCREASE IN OUTLETS
+      _price: 75
+      _boostIncome: 0.3
+  - _name: BARBERSHOP
     _level: 0
-    _incomeDelay: 0
-    _price: 0
-    _income: 0
-    _typesImprovement: []
-  - _name: 
+    _incomeDelay: 6
+    _price: 40
+    _income: 40
+    _typesImprovement:
+    - _isPurchased: 0
+      _name: FLYERS DISTRIBUTION
+      _price: 1200
+      _boostIncome: 0.15
+    - _isPurchased: 0
+      _name: STAFF TRAINING
+      _price: 2400
+      _boostIncome: 0.3
+  - _name: CARSHOWROOM
     _level: 0
-    _incomeDelay: 0
-    _price: 0
-    _income: 0
-    _typesImprovement: []
-  - _name: 
+    _incomeDelay: 10
+    _price: 200
+    _income: 200
+    _typesImprovement:
+    - _isPurchased: 0
+      _name: ADVERTISING ON TV
+      _price: 6000
+      _boostIncome: 0.1
+    - _isPurchased: 0
+      _name: TRADE-IN SYSTEM
+      _price: 12000
+      _boostIncome: 0.2
+  - _name: GDA Studio
     _level: 0
-    _incomeDelay: 0
-    _price: 0
-    _income: 0
-    _typesImprovement: []
-  - _name: 
+    _incomeDelay: 17
+    _price: 1000
+    _income: 1000
+    _typesImprovement:
+    - _isPurchased: 0
+      _name: INSTA TARGET
+      _price: 15000
+      _boostIncome: 0.05
+    - _isPurchased: 0
+      _name: PERSONAL CONSULTATION
+      _price: 30000
+      _boostIncome: 0.1
+  - _name: DARKNET
     _level: 0
-    _incomeDelay: 0
-    _price: 0
-    _income: 0
-    _typesImprovement: []
+    _incomeDelay: 30
+    _price: 5000
+    _income: 5000
+    _typesImprovement:
+    - _isPurchased: 0
+      _name: ORGAN SALES
+      _price: 100000
+      _boostIncome: 0.03
+    - _isPurchased: 0
+      _name: PEOPLE SAILING
+      _price: 300000
+      _boostIncome: 0.09

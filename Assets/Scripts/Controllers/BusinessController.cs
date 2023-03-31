@@ -1,3 +1,4 @@
+using System;
 using JetBrains.Annotations;
 using SimpleEventBus.Disposables;
 using UnityEngine;
@@ -10,33 +11,43 @@ public class BusinessController : MonoBehaviour
     [SerializeField] private Timer _timer;
     [SerializeField] private ImprovementController[] _improvementControllers;
 
+    private ProfitSystem _profitSystem;
     private ConfigSystem _configSystem;
-    private Profit _profit;
     private BusinessModel _model;
     private CompositeDisposable _subscription;
     private float _price;
     private bool _isLevel;
 
+    private void Awake()
+    {
+       
+      _subscription = new CompositeDisposable()
+      {
+         EventStream.Game.Subscribe<GetProfitEvent>(GetProfit),
+
+      };
+    }
+    
+
     private void Start()
     {
         _timer.Initialize(_model);
-        var eventDataRequest = new GetIncomeEvent(_model.GetCurrentIncome);
-        EventStream.Game.Publish(eventDataRequest);
-
-        _subscription = new CompositeDisposable()
-        {
-            EventStream.Game.Subscribe<GetProfitEvent>(GetProfit),
-        };
+        var newLevelPrice = _configSystem.GetNewLevelPrice(_model.GetCurrentLevel, _model.GetBasicPrice);
+        _model.ChangeLevelPrice(newLevelPrice);
+        
 
         for (var i = 0; i < _improvementControllers.Length; i++)
         {
+            Debug.Log(_model);
             _improvementControllers[i].Initialize(_model.GetImprovemnts[i]);
         }
     }
-
+    
+    
+    [UsedImplicitly]
     public void GetProfit(GetProfitEvent profit)
     {
-        _profit = profit.GetProfit();
+        _profitSystem = profit.GetProfit();
         foreach (var improvementController in _improvementControllers)
         {
             improvementController.Initialize(profit.GetProfit());
@@ -64,21 +75,22 @@ public class BusinessController : MonoBehaviour
     [UsedImplicitly]
     public void ChangeIncome()
     {
-        if (_profit.GetBalance() < _price)
+        if (_profitSystem.GetBalance() < _price)
         {
             return;
         }
 
+        Debug.Log(_isLevel);
         if (_isLevel)
         {
             _model.ChangeLEvel();
             _isLevel = false;
         }
 
-        _profit.DecreaseTotalBalance(_price);
+        _profitSystem.DecreaseTotalBalance(_price);
 
         ChangeCurrentIncome();
-
+        
         var newLevelPrice = _configSystem.GetNewLevelPrice(_model.GetCurrentLevel, _model.GetBasicPrice);
         _model.ChangeLevelPrice(newLevelPrice);
     }

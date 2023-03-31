@@ -10,6 +10,7 @@ public class ImprovementView : MonoBehaviour
 
     private void View()
     {
+//        Debug.Log(improvementController==null);
         _improvementName.text = improvementController.GetImprovementModel.Name;
         _price.text = "PRICE: " + improvementController.GetImprovementModel.Price;
         _boost.text = "BOOST: " + improvementController.GetImprovementModel.Boost*100 +"%";

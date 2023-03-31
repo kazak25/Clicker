@@ -8,13 +8,13 @@ public class ImprovementController : MonoBehaviour
    [SerializeField] private BusinessController _businessController;
    
    private ImprovementModel _improvementModel;
-   private Profit _profit;
+   private ProfitSystem _profitSystem;
    private float _price;
    
 
-   public void Initialize(Profit profit)
+   public void Initialize(ProfitSystem profitSystem)
    {
-      _profit = profit;
+      _profitSystem = profitSystem;
    }
   
    public void Initialize(ImprovementModel improvementModel)
@@ -28,14 +28,15 @@ public class ImprovementController : MonoBehaviour
       {
          return;
       }
-      if (_profit.GetBalance() < _price)
+      Debug.Log(_profitSystem==null);
+      if (_profitSystem.GetBalance() < _price)
       {
          return;
       }
       
       _improvementModel.ChangeCondition();
       _businessController.ChangeCurrentIncome();
-      _profit.DecreaseTotalBalance(_price);
+      _profitSystem.DecreaseTotalBalance(_price);
    }
    
    [UsedImplicitly]
