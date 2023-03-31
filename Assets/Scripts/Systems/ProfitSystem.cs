@@ -2,8 +2,9 @@ using System;
 using SimpleEventBus.Disposables;
 using UnityEngine;
 
-public class Profit : MonoBehaviour
+public class ProfitSystem : MonoBehaviour
 {
+
    private float _totalBalance;
    private CompositeDisposable _subscription;
    public void IncreaseProfit(GetIncomeEvent data)
@@ -15,7 +16,6 @@ public class Profit : MonoBehaviour
    {
       var eventDataRequest = new GetProfitEvent(this);
       EventStream.Game.Publish(eventDataRequest);
-      
       _subscription = new CompositeDisposable()
       {
          EventStream.Game.Subscribe<GetIncomeEvent>(IncreaseProfit),
@@ -23,11 +23,19 @@ public class Profit : MonoBehaviour
       };
    }
 
-   public int GetBalance()
+   public void Initialize(float newBalance)
    {
-      return (int)_totalBalance;
+      _totalBalance = newBalance;
+   }
+   public float GetBalance()
+   {
+      return _totalBalance;
    }
 
+   public void ResetBalance()
+   {
+      _totalBalance = 0f;
+   }
    public void DecreaseTotalBalance(float price)
    {
       _totalBalance -= price;

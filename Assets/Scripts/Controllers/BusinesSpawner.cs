@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class BusinesSpawner : MonoBehaviour
 {
-    [SerializeField] private BusinessConfig _businessesConfig;
+   // [SerializeField] private BusinessConfig _businessesConfig;
     [SerializeField] private BusinessController _businessPrefab;
     [SerializeField] private RectTransform _parent;
-    [SerializeField] private Profit _profit; //Сделать через EventBus
+    [SerializeField] private ProfitSystem profitSystem; //Сделать через EventBus
     [SerializeField] private Timer _timer; //сделаем через EventBus
     [SerializeField] private ConfigSystem _configSystem;
     
@@ -18,11 +18,14 @@ public class BusinesSpawner : MonoBehaviour
         {
             var business = Instantiate(_businessPrefab, _parent);
             business.Initialize(businessModel, _configSystem);
-            _timer.Initialize(_profit);
+           // Debug.Log(businessModel.GetName);
+          // _timer.Initialize(businessModel);
+          Debug.Log("Spawner"+profitSystem.GetBalance());
+            _timer.Initialize(profitSystem);
             _controllers.Add(business);
         }
     }
-    public void DeleteComtrollers()
+    public void DeleteControllers()
     {
         foreach (var controller in _controllers)
         {

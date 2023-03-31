@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using Systems;
 using UnityEngine;
+using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Profit profit;
+    [SerializeField] private ProfitSystem profitSystem;
     [SerializeField] private BalanceView _balanceView;
     [SerializeField] private ConfigSystem _configSystem;
     [SerializeField] private BusinesSpawner _businesSpawner;
@@ -13,30 +15,40 @@ public class GameManager : MonoBehaviour
     private ILoadFileSystem _loadFileSystem;
     private IDeleteFileSystem _deleteFileSystem;
 
+    private JsonFileSystem _json;
+
     private void Awake()
     {
         InitializeSystems();
+        _json = new JsonFileSystem();
         StartGame();
     }
 
     private void Start()
     {
-        _balanceView.Initialize(profit);
+        _balanceView.Initialize(profitSystem);
     }
 
     private void StartGame()
     {
         BusinessModel[] _businessModels;
-        var data = _loadFileSystem.Load();
+        var data = _json.Load();
         if (data == null)
         {
-            _configSystem.CreateBusinessModels();
+             Debug.Log("IF");
+             Debug.Log(profitSystem.GetBalance());
+             _configSystem.CreateBusinessModels();
             _businessModels = _configSystem.GetBuisnessModels();
         }
         else
         {
+            Debug.Log("ELSE");
             _businessModels = data.BusinessModels;
+            Debug.Log(data.Balance);
+            
+            profitSystem.Initialize(data.Balance);
         }
+        
         _businesSpawner.SpawnBusiness(_businessModels);
     }
 
@@ -50,17 +62,23 @@ public class GameManager : MonoBehaviour
     public void SaveGame()
     {
         var businesModels = _configSystem.GetBuisnessModels();
-        var balance = profit.GetBalance();
+        
+        var balance = profitSystem.GetBalance();
         var saveData = new SaveData(balance,businesModels);
         
-        _saveFileSystem.Save(saveData);
+        _json.Save(saveData);
+       
+        
+        EditorApplication.isPlaying = false;
+        
     }
-
-    private void NewGame( )
+ 
+    public void NewGame()
     {
         _deleteFileSystem.Delete();
-        _businesSpawner.DeleteComtrollers();
-        StartGame();
+        _businesSpawner.DeleteControllers();
+        EditorApplication.isPlaying = false;
+       // StartGame();
     }
     
 }

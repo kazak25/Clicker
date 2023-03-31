@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class GetProfitEvent : EventBase
 {
-    public Profit _Profit;
+    public ProfitSystem ProfitSystem;
 
-    public GetProfitEvent(Profit profit)
+    public GetProfitEvent(ProfitSystem profitSystem)
     {
-        _Profit = profit;
+        ProfitSystem = profitSystem;
     }
-    public Profit GetProfit()
+    public ProfitSystem GetProfit()
     {
-        return _Profit;
+        return ProfitSystem;
     }
 
 }

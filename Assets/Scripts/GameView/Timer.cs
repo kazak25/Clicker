@@ -11,7 +11,7 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] private Slider _slider;
 
-    private Profit _profit; //Сделать через EventBus
+    private ProfitSystem _profitSystem; //Сделать через EventBus
    
     private BusinessModel _model;
     private int _maxValue;
@@ -22,9 +22,9 @@ public class Timer : MonoBehaviour
         _slider.maxValue = _model.GetDelayIncome;
     }
 
-    public void Initialize(Profit profit)
+    public void Initialize(ProfitSystem profitSystem)
     {
-        _profit = profit;
+        _profitSystem = profitSystem;
     }
 
     public void Initialize(BusinessModel model)
@@ -45,7 +45,6 @@ public class Timer : MonoBehaviour
         }
         _timer += Time.deltaTime;
         _slider.value = _timer;
-       
         if (_timer>=_model.GetDelayIncome)
         {
             var eventDataRequest = new GetIncomeEvent(_model.GetCurrentIncome);
