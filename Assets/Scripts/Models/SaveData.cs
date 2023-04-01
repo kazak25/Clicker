@@ -1,8 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
+namespace Models
+{
     [Serializable]
     public class SaveData
     {
@@ -15,4 +14,5 @@ using UnityEngine;
             BusinessModels = businessModels;
         }
     }
+}
 

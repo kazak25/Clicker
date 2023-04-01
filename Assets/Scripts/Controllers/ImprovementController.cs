@@ -1,47 +1,55 @@
+using System;
+using GameView;
 using JetBrains.Annotations;
+using Models;
+using Systems;
 using UnityEngine;
 
-public class ImprovementController : MonoBehaviour
+namespace Controllers
 {
-   public ImprovementModel GetImprovementModel => _improvementModel;
-   
-   [SerializeField] private BusinessController _businessController;
-   
-   private ImprovementModel _improvementModel;
-   private ProfitSystem _profitSystem;
-   private float _price;
-   
+    public class ImprovementController : MonoBehaviour
+    {
+        public ImprovementModel GetImprovementModel => _improvementModel;
 
-   public void Initialize(ProfitSystem profitSystem)
-   {
-      _profitSystem = profitSystem;
-   }
-  
-   public void Initialize(ImprovementModel improvementModel)
-   {
-      _improvementModel = improvementModel;
-   }
-  
-   public void ChangeIncome()
-   {
-      if (_improvementModel.IsBought)
-      {
-         return;
-      }
-      Debug.Log(_profitSystem==null);
-      if (_profitSystem.GetBalance() < _price)
-      {
-         return;
-      }
-      
-      _improvementModel.ChangeCondition();
-      _businessController.ChangeCurrentIncome();
-      _profitSystem.DecreaseTotalBalance(_price);
-   }
-   
-   [UsedImplicitly]
-   public void GetImprovementPrice()
-   {
-      _price = GetImprovementModel.Price;
-   }
+        [SerializeField] private BusinessController _businessController;
+        [SerializeField] private ImprovementView _improvementView;
+
+        private ImprovementModel _improvementModel;
+        private ProfitSystem _profitSystem;
+
+
+        public void Initialize(ProfitSystem profitSystem)
+        {
+            _profitSystem = profitSystem;
+        }
+
+        public void Initialize(ImprovementModel improvementModel)
+        {
+            _improvementModel = improvementModel;
+        }
+
+        [UsedImplicitly]
+        public void ChangeIncome()
+        {
+            if (_improvementModel.IsBought)
+            {
+                return;
+            }
+
+            Debug.Log(_profitSystem == null);
+            if (_profitSystem.GetBalance() < _improvementModel.Price)
+            {
+                return;
+            }
+
+            _improvementModel.ChangeCondition();
+            _businessController.ChangeCurrentIncome();
+            _profitSystem.DecreaseTotalBalance(_improvementModel.Price);
+        }
+
+        private void Update()
+        {
+            _improvementView.View(_improvementModel.Name,_improvementModel.Price,_improvementModel.Boost);
+        }
+    }
 }

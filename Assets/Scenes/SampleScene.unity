@@ -459,11 +459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c4f6e02e3aa2d94cb801661dd7e8bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _businessesConfig: {fileID: 11400000, guid: b6fdbf682c3df4a4189fb3683cf7bb30, type: 2}
   _businessPrefab: {fileID: 8663427374805505496, guid: 69d13ed6dce12c04890fd7d29d846ca4, type: 3}
   _parent: {fileID: 1817359954}
-  profitSystem: {fileID: 728770958}
-  _timer: {fileID: 4875962887006132337, guid: 69d13ed6dce12c04890fd7d29d846ca4, type: 3}
   _configSystem: {fileID: 728770955}
 --- !u!4 &728770957
 Transform:
@@ -507,7 +504,7 @@ MonoBehaviour:
   profitSystem: {fileID: 728770958}
   _balanceView: {fileID: 934353748}
   _configSystem: {fileID: 728770955}
-  _businesSpawner: {fileID: 728770956}
+  businessSystem: {fileID: 728770956}
 --- !u!1 &857724789
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,55 +1,55 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using Events;
+using Models;
+using Systems;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UIElements;
 using Slider = UnityEngine.UI.Slider;
 
-public class Timer : MonoBehaviour
+namespace GameView
 {
-    [SerializeField] private Slider _slider;
+    public class Timer : MonoBehaviour
+    {
+        [SerializeField] private Slider _slider;
 
-    private ProfitSystem _profitSystem; //Сделать через EventBus
+        private ProfitSystem _profitSystem; //Сделать через EventBus
    
-    private BusinessModel _model;
-    private int _maxValue;
-    private float _timer;
+        private BusinessModel _model;
+        private int _maxValue;
+        private float _timer;
 
-    private void Start()
-    {
-        _slider.maxValue = _model.GetDelayIncome;
-    }
-
-    public void Initialize(ProfitSystem profitSystem)
-    {
-        _profitSystem = profitSystem;
-    }
-
-    public void Initialize(BusinessModel model)
-    {
-        _model = model;
-    }
-   
-    private void Update()
-    {
-         UpdateSlider();
-    }
-
-    private void UpdateSlider()
-    {
-        if (_model.GetCurrentLevel == 0)
+        private void Start()
         {
-            return;
+            _slider.maxValue = _model.GetDelayIncome;
         }
-        _timer += Time.deltaTime;
-        _slider.value = _timer;
-        if (_timer>=_model.GetDelayIncome)
+
+        public void Initialize(ProfitSystem profitSystem)
         {
-            var eventDataRequest = new GetIncomeEvent(_model.GetCurrentIncome);
-            EventStream.Game.Publish(eventDataRequest);
-            _timer=0;
+            _profitSystem = profitSystem;
+        }
+
+        public void Initialize(BusinessModel model)
+        {
+            _model = model;
+        }
+   
+        private void Update()
+        {
+            UpdateSlider();
+        }
+
+        private void UpdateSlider()
+        {
+            if (_model.GetCurrentLevel == 0)
+            {
+                return;
+            }
+            _timer += Time.deltaTime;
+            _slider.value = _timer;
+            if (_timer>=_model.GetDelayIncome)
+            {
+                var eventDataRequest = new GetIncomeEvent(_model.GetCurrentIncome);
+                EventStream.Game.Publish(eventDataRequest);
+                _timer=0;
+            }
         }
     }
 }
