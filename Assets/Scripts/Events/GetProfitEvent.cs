@@ -1,19 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using SimpleEventBus.Events;
-using UnityEngine;
+using Systems;
 
-public class GetProfitEvent : EventBase
+namespace Events
 {
-    public ProfitSystem ProfitSystem;
-
-    public GetProfitEvent(ProfitSystem profitSystem)
+    public class GetProfitEvent : EventBase
     {
-        ProfitSystem = profitSystem;
-    }
-    public ProfitSystem GetProfit()
-    {
-        return ProfitSystem;
-    }
+        public ProfitSystem ProfitSystem { get; }
 
+        public GetProfitEvent(ProfitSystem profitSystem)
+        {
+            ProfitSystem = profitSystem;
+        }
+        public ProfitSystem GetProfit()
+        {
+            return ProfitSystem;
+        }
+
+    }
 }

@@ -1,24 +1,20 @@
+using Controllers;
 using TMPro;
 using UnityEngine;
 
-public class ImprovementView : MonoBehaviour
+namespace GameView
 {
-    [SerializeField] private TextMeshProUGUI _improvementName;
-    [SerializeField] private TextMeshProUGUI _price;
-    [SerializeField] private TextMeshProUGUI _boost;
-    [SerializeField] private ImprovementController improvementController;
-
-    private void View()
+    public class ImprovementView : MonoBehaviour
     {
-//        Debug.Log(improvementController==null);
-        _improvementName.text = improvementController.GetImprovementModel.Name;
-        _price.text = "PRICE: " + improvementController.GetImprovementModel.Price;
-        _boost.text = "BOOST: " + improvementController.GetImprovementModel.Boost*100 +"%";
-    }
+        [SerializeField] private TextMeshProUGUI _improvementName;
+        [SerializeField] private TextMeshProUGUI _price;
+        [SerializeField] private TextMeshProUGUI _boost;
 
-    private void Update()
-    {
-        View();
+        public void View(string name, float price, float boost)
+        {
+            _improvementName.text = name;
+            _price.text = "PRICE: " + price;
+            _boost.text = "BOOST: " + boost * 100 + "%";
+        }
     }
-    
 }

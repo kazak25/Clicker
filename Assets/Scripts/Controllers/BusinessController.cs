@@ -1,110 +1,105 @@
 using System;
+using Configs;
+using Events;
+using GameView;
 using JetBrains.Annotations;
+using Models;
 using SimpleEventBus.Disposables;
+using Systems;
 using UnityEngine;
 
-public class BusinessController : MonoBehaviour
+namespace Controllers
 {
-    public BusinessModel BusinessModel => _model;
-
-    // public BusinessSettings _businessSettings { get; private set; }
-    [SerializeField] private Timer _timer;
-    [SerializeField] private ImprovementController[] _improvementControllers;
-
-    private ProfitSystem _profitSystem;
-    private ConfigSystem _configSystem;
-    private BusinessModel _model;
-    private CompositeDisposable _subscription;
-    private float _price;
-    private bool _isLevel;
-
-    private void Awake()
+    public class BusinessController : MonoBehaviour
     {
-       
-      _subscription = new CompositeDisposable()
-      {
-         EventStream.Game.Subscribe<GetProfitEvent>(GetProfit),
+        public BusinessModel Model { get; private set; }
 
-      };
-    }
-    
+        [SerializeField] private Timer _timer;
+        [SerializeField] private ImprovementController[] _improvementControllers;
+        [SerializeField] private BusinessView _businessView;
 
-    private void Start()
-    {
-        _timer.Initialize(_model);
-        var newLevelPrice = _configSystem.GetNewLevelPrice(_model.GetCurrentLevel, _model.GetBasicPrice);
-        _model.ChangeLevelPrice(newLevelPrice);
+        private ProfitSystem _profitSystem;
+        private ConfigSystem _configSystem;
+        private CompositeDisposable _subscription;
+
+        private void Awake()
+        {
+            _subscription = new CompositeDisposable()
+            {
+                EventStream.Game.Subscribe<GetProfitEvent>(GetProfit),
+            };
+        }
+
+        private void Start()
+        {
+            _timer.Initialize(Model);
+            OnStart();
         
-
-        for (var i = 0; i < _improvementControllers.Length; i++)
-        {
-            Debug.Log(_model);
-            _improvementControllers[i].Initialize(_model.GetImprovemnts[i]);
-        }
-    }
-    
-    
-    [UsedImplicitly]
-    public void GetProfit(GetProfitEvent profit)
-    {
-        _profitSystem = profit.GetProfit();
-        foreach (var improvementController in _improvementControllers)
-        {
-            improvementController.Initialize(profit.GetProfit());
-        }
-    }
-
-    public void Initialize(BusinessModel model, ConfigSystem configSystem)
-    {
-        _model = model;
-        _configSystem = configSystem;
-    }
-
-
-    [UsedImplicitly]
-    public void GetLevelPrice()
-    {
-        _price = _model.GetCurrentLevelPrice;
-    }
-
-    public void PressLevel()
-    {
-        _isLevel = true;
-    }
-
-    [UsedImplicitly]
-    public void ChangeIncome()
-    {
-        if (_profitSystem.GetBalance() < _price)
-        {
-            return;
+            for (var i = 0; i < _improvementControllers.Length; i++)
+            {
+                _improvementControllers[i].Initialize(Model.GetImprovemnts[i]);
+            }
         }
 
-        Debug.Log(_isLevel);
-        if (_isLevel)
+        [UsedImplicitly]
+        private void GetProfit(GetProfitEvent profit)
         {
-            _model.ChangeLEvel();
-            _isLevel = false;
+            _profitSystem = profit.GetProfit();
+            _timer.Initialize(profit.GetProfit());
+            foreach (var improvementController in _improvementControllers)
+            {
+                improvementController.Initialize(profit.GetProfit());
+            }
         }
 
-        _profitSystem.DecreaseTotalBalance(_price);
+        private void OnStart()
+        {
+            var newLevelPrice = _configSystem.GetNewLevelPrice(Model.GetCurrentLevel, Model.GetBasicPrice);
+            Model.ChangeLevelPrice(newLevelPrice);
+        }
 
-        ChangeCurrentIncome();
-        
-        var newLevelPrice = _configSystem.GetNewLevelPrice(_model.GetCurrentLevel, _model.GetBasicPrice);
-        _model.ChangeLevelPrice(newLevelPrice);
-    }
+        public void Initialize(BusinessModel model, ConfigSystem configSystem)
+        {
+            Model = model;
+            _configSystem = configSystem;
+        }
 
-    public void ChangeCurrentIncome()
-    {
-        var newIncome = _configSystem.RecalculationIncome(_model.GetCurrentLevel, _model.GetBasicPrice,
-            _improvementControllers);
+        public void ClickLevel()
+        {
+            Model.ClickLevel();
+        }
 
-        _model.ChangeProfit(newIncome);
-    }
+        [UsedImplicitly]
+        public void ChangeIncome()
+        {
+            if (_profitSystem.GetBalance() < Model.GetCurrentLevelPrice) return;
+            if (Model.isLevelClick)
+            {
+                Model.ChangeLEvel();
+                Model.ResetLevelClick();
+            }
 
-    private void OnDestroy()
-    {
-        _subscription?.Dispose();
+            _profitSystem.DecreaseTotalBalance(Model.GetCurrentLevelPrice);
+            ChangeCurrentIncome();
+            var newLevelPrice = _configSystem.GetNewLevelPrice(Model.GetCurrentLevel, Model.GetBasicPrice);
+            Model.ChangeLevelPrice(newLevelPrice);
+        }
+
+        public void ChangeCurrentIncome()
+        {
+            var newIncome = _configSystem.RecalculationIncome(Model.GetCurrentLevel, Model.GetBasicPrice,
+                _improvementControllers);
+            Model.ChangeProfit(newIncome);
+        }
+
+        private void OnDestroy()
+        {
+            _subscription?.Dispose();
+        }
+
+        private void Update()
+        {
+            _businessView.View(Model.GetName,Model.GetCurrentLevel,Model.GetCurrentIncome,Model.GetCurrentLevelPrice);
+        }
     }
 }

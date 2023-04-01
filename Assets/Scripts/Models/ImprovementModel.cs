@@ -1,27 +1,29 @@
 using System;
-using UnityEngine;
 
-[Serializable]
-public class ImprovementModel
+namespace Models
 {
-   public bool IsBought = false;
-   
-   public string Name;
-   public float Price;
-   public float Boost;
-   
-   public void ChangeCondition()
+   [Serializable]
+   public class ImprovementModel
    {
-      IsBought = true;
-   }
+      public bool IsBought = false;
    
-   public ImprovementModel(string name, float price, float boost, bool isPurchased)
-   {
-      Name = name;
-      Price = price;
-      Boost = boost;
-      IsBought = isPurchased;
-   }
+      public string Name;
+      public float Price;
+      public float Boost;
+   
+      public void ChangeCondition()
+      {
+         IsBought = true;
+      }
+   
+      public ImprovementModel(string name, float price, float boost, bool isPurchased)
+      {
+         Name = name;
+         Price = price;
+         Boost = boost;
+         IsBought = isPurchased;
+      }
 
+   }
 }
 

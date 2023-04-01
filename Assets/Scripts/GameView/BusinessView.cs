@@ -1,24 +1,22 @@
+using Controllers;
 using TMPro;
 using UnityEngine;
 
-public class BusinessView : MonoBehaviour
+namespace GameView
 {
-    [SerializeField] private TextMeshProUGUI _businessName;
-    [SerializeField] private TextMeshProUGUI _level;
-    [SerializeField] private TextMeshProUGUI _income;
-    [SerializeField] private TextMeshProUGUI _levelUpPrice;
-    [SerializeField] private BusinessController _businessController;
-
-    private void View()
+    public class BusinessView : MonoBehaviour
     {
-        _businessName.text = _businessController.BusinessModel.GetName;
-        _level.text = "LVL " + _businessController.BusinessModel.GetCurrentLevel;
-        _income.text = "INCOME: " + _businessController.BusinessModel.GetCurrentIncome;
-        _levelUpPrice.text =  _businessController.BusinessModel.GetCurrentLevelPrice+ "$";
-    }
+        [SerializeField] private TextMeshProUGUI _businessName;
+        [SerializeField] private TextMeshProUGUI _level;
+        [SerializeField] private TextMeshProUGUI _income;
+        [SerializeField] private TextMeshProUGUI _levelUpPrice;
 
-    private void Update()
-    {
-        View();
+        public void View(string name, float level, float income, float levelPrice)
+        {
+            _businessName.text = name;
+            _level.text = "LVL " + level;
+            _income.text = "INCOME: " + income;
+            _levelUpPrice.text = levelPrice + "$";
+        }
     }
 }
