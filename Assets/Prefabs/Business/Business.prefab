@@ -1247,6 +1247,7 @@ GameObject:
   - component: {fileID: 8663427374805505496}
   - component: {fileID: 4875962887006132337}
   - component: {fileID: -337215286349847857}
+  - component: {fileID: 793493339696872287}
   m_Layer: 5
   m_Name: Business
   m_TagString: Untagged
@@ -1288,7 +1289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b2ce6ee8419e54c97b3d46247fb497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timer: {fileID: 4875962887006132337}
+  timerIncomeController: {fileID: 4875962887006132337}
   _improvementControllers:
   - {fileID: 508321034207262845}
   - {fileID: 6568076181583554529}
@@ -1306,6 +1307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 4329165008678648537}
+  _delayIncomeView: {fileID: 793493339696872287}
 --- !u!114 &-337215286349847857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1322,6 +1324,19 @@ MonoBehaviour:
   _level: {fileID: 4329165008188612920}
   _income: {fileID: 4329165007607366218}
   _levelUpPrice: {fileID: 4329165007489552012}
+--- !u!114 &793493339696872287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4329165007716396767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d68c12421f1858449a636d88f3c0939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 4329165008678648537}
 --- !u!1 &4329165007721396983
 GameObject:
   m_ObjectHideFlags: 0

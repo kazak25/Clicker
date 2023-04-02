@@ -15,12 +15,12 @@ namespace Controllers
         [SerializeField] private ImprovementView _improvementView;
 
         private ImprovementModel _improvementModel;
-        private ProfitSystem _profitSystem;
+        private TotalBalanceController _totalBalanceController;
 
 
-        public void Initialize(ProfitSystem profitSystem)
+        public void Initialize(TotalBalanceController totalBalanceController)
         {
-            _profitSystem = profitSystem;
+            _totalBalanceController = totalBalanceController;
         }
 
         public void Initialize(ImprovementModel improvementModel)
@@ -36,15 +36,15 @@ namespace Controllers
                 return;
             }
 
-            Debug.Log(_profitSystem == null);
-            if (_profitSystem.GetBalance() < _improvementModel.Price)
+            Debug.Log(_totalBalanceController == null);
+            if (_totalBalanceController.GetBalance() < _improvementModel.Price)
             {
                 return;
             }
 
             _improvementModel.ChangeCondition();
             _businessController.ChangeCurrentIncome();
-            _profitSystem.DecreaseTotalBalance(_improvementModel.Price);
+            _totalBalanceController.DecreaseTotalBalance(_improvementModel.Price);
         }
 
         private void Update()

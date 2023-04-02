@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ScriptableObjects
 {
     [CreateAssetMenu(fileName = "business", menuName = "Businesses")]
-    public class BusinessConfig : ScriptableObject
+    public class BusinessConfigCollection : ScriptableObject
     {
         public ConfigBusinessModel[] ConfigBusinessModel => _configBusinessModels;
     

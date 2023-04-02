@@ -427,6 +427,8 @@ GameObject:
   - component: {fileID: 728770955}
   - component: {fileID: 728770959}
   - component: {fileID: 728770958}
+  - component: {fileID: 728770960}
+  - component: {fileID: 728770961}
   m_Layer: 0
   m_Name: Systems
   m_TagString: Untagged
@@ -446,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd98bf48e1d30545aee2e0919b2d144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _businessConfig: {fileID: 11400000, guid: b6fdbf682c3df4a4189fb3683cf7bb30, type: 2}
+  businessConfigCollection: {fileID: 11400000, guid: b6fdbf682c3df4a4189fb3683cf7bb30, type: 2}
 --- !u!114 &728770956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,6 +491,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e564e449bbc33e43bac45be714c4038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _balanceView: {fileID: 728770960}
+  _profitSystem: {fileID: 728770961}
 --- !u!114 &728770959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,10 +505,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818780dd80c332846bcf1a0872a8fd13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profitSystem: {fileID: 728770958}
-  _balanceView: {fileID: 934353748}
+  totalBalanceController: {fileID: 728770958}
   _configSystem: {fileID: 728770955}
   businessSystem: {fileID: 728770956}
+--- !u!114 &728770960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728770954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 890e3472dec8a404dbec02b2886b9a8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _totalBalance: {fileID: 1629917663}
+--- !u!114 &728770961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728770954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb7a1b6b532dee4f89629f474a93600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _totalBalanceController: {fileID: 728770958}
 --- !u!1 &857724789
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,7 +683,6 @@ GameObject:
   - component: {fileID: 934353746}
   - component: {fileID: 934353745}
   - component: {fileID: 934353744}
-  - component: {fileID: 934353748}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -749,19 +777,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &934353748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 934353743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 890e3472dec8a404dbec02b2886b9a8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _totalBalance: {fileID: 1629917663}
 --- !u!1 &1038609499
 GameObject:
   m_ObjectHideFlags: 0

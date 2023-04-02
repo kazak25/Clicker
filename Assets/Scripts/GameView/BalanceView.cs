@@ -8,18 +8,10 @@ namespace GameView
     public class BalanceView : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _totalBalance;
-
-        private ProfitSystem _profitSystem;
-
-        void Update()
+        public void View(TotalBalanceController totalBalanceController)
         {
-            var balance = Convert.ToInt32(_profitSystem.GetBalance().ToString());
+            var balance = Convert.ToInt32(totalBalanceController.GetBalance().ToString());
             _totalBalance.text = "Balance: " + balance + "$";
-        }
-
-        public void Initialize(ProfitSystem profitSystem)
-        {
-            _profitSystem = profitSystem;
         }
     }
 }

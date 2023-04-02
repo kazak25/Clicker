@@ -13,7 +13,7 @@ namespace Models
         public float GetCurrentLevel { get; set; }
         public float GetCurrentLevelPrice { get; set; }
 
-        public ImprovementModel[] GetImprovemnts;
+        public  ImprovementModel[] GetImprovemnts;
 
         public bool isLevelClick { get; private set; }
 

@@ -9,8 +9,8 @@ using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private ProfitSystem profitSystem;
-    [SerializeField] private BalanceView _balanceView;
+    [SerializeField] private TotalBalanceController totalBalanceController;
+   // [SerializeField] private BalanceView _balanceView;
     [SerializeField] private ConfigSystem _configSystem;
     [SerializeField] private BusinessSystem businessSystem;
 
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _balanceView.Initialize(profitSystem);
+        //_balanceView.Initialize(totalBalanceController);
     }
 
     private void StartGame()
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         if (data == null)
         {
             Debug.Log("IF");
-            Debug.Log(profitSystem.GetBalance());
+            Debug.Log(totalBalanceController.GetBalance());
             _configSystem.CreateBusinessModels();
             _businessModels = _configSystem.GetBuisnessModels();
         }
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
             _businessModels = data.BusinessModels;
             Debug.Log(data.Balance);
 
-            profitSystem.Initialize(data.Balance);
+            totalBalanceController.Initialize(data.Balance);
         }
 
         businessSystem.SpawnBusiness(_businessModels);
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     {
         var businesModels = _configSystem.GetBuisnessModels();
 
-        var balance = profitSystem.GetBalance();
+        var balance = totalBalanceController.GetBalance();
         var saveData = new SaveData(balance, businesModels);
 
         _json.Save(saveData);

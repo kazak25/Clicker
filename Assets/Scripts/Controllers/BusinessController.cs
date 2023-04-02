@@ -14,13 +14,13 @@ namespace Controllers
     {
         public BusinessModel Model { get; private set; }
 
-        [SerializeField] private Timer _timer;
+        [SerializeField] private TimerIncomeController timerIncomeController;
         [SerializeField] private ImprovementController[] _improvementControllers;
         [SerializeField] private BusinessView _businessView;
-
-        private ProfitSystem _profitSystem;
+        
         private ConfigSystem _configSystem;
         private CompositeDisposable _subscription;
+        private ProfitSystem _profitSystem;
 
         private void Awake()
         {
@@ -32,9 +32,9 @@ namespace Controllers
 
         private void Start()
         {
-            _timer.Initialize(Model);
+            timerIncomeController.Initialize(Model);
             OnStart();
-        
+
             for (var i = 0; i < _improvementControllers.Length; i++)
             {
                 _improvementControllers[i].Initialize(Model.GetImprovemnts[i]);
@@ -45,10 +45,9 @@ namespace Controllers
         private void GetProfit(GetProfitEvent profit)
         {
             _profitSystem = profit.GetProfit();
-            _timer.Initialize(profit.GetProfit());
             foreach (var improvementController in _improvementControllers)
             {
-                improvementController.Initialize(profit.GetProfit());
+                improvementController.Initialize(profit.GetBalance());
             }
         }
 
@@ -72,24 +71,12 @@ namespace Controllers
         [UsedImplicitly]
         public void ChangeIncome()
         {
-            if (_profitSystem.GetBalance() < Model.GetCurrentLevelPrice) return;
-            if (Model.isLevelClick)
-            {
-                Model.ChangeLEvel();
-                Model.ResetLevelClick();
-            }
-
-            _profitSystem.DecreaseTotalBalance(Model.GetCurrentLevelPrice);
-            ChangeCurrentIncome();
-            var newLevelPrice = _configSystem.GetNewLevelPrice(Model.GetCurrentLevel, Model.GetBasicPrice);
-            Model.ChangeLevelPrice(newLevelPrice);
+            _profitSystem.ChangeIncome(Model, _configSystem, _improvementControllers);
         }
-
+        
         public void ChangeCurrentIncome()
         {
-            var newIncome = _configSystem.RecalculationIncome(Model.GetCurrentLevel, Model.GetBasicPrice,
-                _improvementControllers);
-            Model.ChangeProfit(newIncome);
+            _profitSystem.ChangeCurrentIncome(Model, _configSystem, _improvementControllers);
         }
 
         private void OnDestroy()
@@ -99,7 +86,8 @@ namespace Controllers
 
         private void Update()
         {
-            _businessView.View(Model.GetName,Model.GetCurrentLevel,Model.GetCurrentIncome,Model.GetCurrentLevelPrice);
+            _businessView.View(Model.GetName, Model.GetCurrentLevel, Model.GetCurrentIncome,
+                Model.GetCurrentLevelPrice);
         }
     }
 }

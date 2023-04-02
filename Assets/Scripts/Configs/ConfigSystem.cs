@@ -7,21 +7,21 @@ namespace Configs
 {
     public class ConfigSystem : MonoBehaviour
     {
-        [SerializeField] private BusinessConfig _businessConfig;
+        [SerializeField] private BusinessConfigCollection businessConfigCollection;
 
         private BusinessModel[] _businessModels;
         private ImprovementModel[] _improvementModels;
         public void CreateBusinessModels()
         {
-            _businessModels = new BusinessModel[_businessConfig.ConfigBusinessModel.Length];
+            _businessModels = new BusinessModel[businessConfigCollection.ConfigBusinessModel.Length];
 
-            for (var i = 0; i < _businessConfig.ConfigBusinessModel.Length; i++)
+            for (var i = 0; i < businessConfigCollection.ConfigBusinessModel.Length; i++)
             {
-                var businessName = _businessConfig.ConfigBusinessModel[i].Name;
-                var incomeDelay = _businessConfig.ConfigBusinessModel[i].IncomeDelay;
-                var level = _businessConfig.ConfigBusinessModel[i].Level;
-                var income = _businessConfig.ConfigBusinessModel[i].Income;
-                var price = _businessConfig.ConfigBusinessModel[i].Price;
+                var businessName = businessConfigCollection.ConfigBusinessModel[i].Name;
+                var incomeDelay = businessConfigCollection.ConfigBusinessModel[i].IncomeDelay;
+                var level = businessConfigCollection.ConfigBusinessModel[i].Level;
+                var income = businessConfigCollection.ConfigBusinessModel[i].Income;
+                var price = businessConfigCollection.ConfigBusinessModel[i].Price;
                 
                 var businessImproves = CreateBusinessImproveModels(i);
 
@@ -30,13 +30,13 @@ namespace Configs
         }
         private ImprovementModel[] CreateBusinessImproveModels(int index)
         {
-            var businessImproves = new ImprovementModel[_businessConfig.ConfigBusinessModel[index].TypesImprovement.Length];
+            var businessImproves = new ImprovementModel[businessConfigCollection.ConfigBusinessModel[index].TypesImprovement.Length];
             for (var j = 0; j < businessImproves.Length; j++)
             {
-                var businessImproveName = _businessConfig.ConfigBusinessModel[index].TypesImprovement[j].Name;
-                var businessImprovePrice = _businessConfig.ConfigBusinessModel[index].TypesImprovement[j].Price;
-                var businessImproveBoostIncome = _businessConfig.ConfigBusinessModel[index].TypesImprovement[j].BoostIncome;
-                var businessImproveIsPurchased = _businessConfig.ConfigBusinessModel[index].TypesImprovement[j].IsPurchased;
+                var businessImproveName = businessConfigCollection.ConfigBusinessModel[index].TypesImprovement[j].Name;
+                var businessImprovePrice = businessConfigCollection.ConfigBusinessModel[index].TypesImprovement[j].Price;
+                var businessImproveBoostIncome = businessConfigCollection.ConfigBusinessModel[index].TypesImprovement[j].BoostIncome;
+                var businessImproveIsPurchased = businessConfigCollection.ConfigBusinessModel[index].TypesImprovement[j].IsPurchased;
 
                 businessImproves[j] = new ImprovementModel(businessImproveName, businessImprovePrice,
                     businessImproveBoostIncome, businessImproveIsPurchased);
