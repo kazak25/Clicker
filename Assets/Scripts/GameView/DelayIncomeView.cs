@@ -12,15 +12,11 @@ public class DelayIncomeView : MonoBehaviour
     [SerializeField] private Slider _slider;
 
     private float _timer;
-    // public void Initialize(float maxValue)
-    // {
-    //     _slider.maxValue = maxValue;
-    // }
+  
     
     public void UpdateSlider(BusinessModel model,float maxValue)
     {
         _slider.maxValue = maxValue;
-        Debug.Log("МаксЗначение" + _slider.maxValue);
         if (model.GetCurrentLevel == 0)
         {
             return;

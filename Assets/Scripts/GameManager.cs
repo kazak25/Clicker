@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Configs;
 using GameView;
+using JetBrains.Annotations;
 using Models;
 using Systems;
 using UnityEngine;
@@ -10,7 +11,6 @@ using UnityEditor;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private TotalBalanceController totalBalanceController;
-   // [SerializeField] private BalanceView _balanceView;
     [SerializeField] private ConfigSystem _configSystem;
     [SerializeField] private BusinessSystem businessSystem;
 
@@ -20,11 +20,6 @@ public class GameManager : MonoBehaviour
     {
         _json = new SaveSystem();
         StartGame();
-    }
-
-    private void Start()
-    {
-        //_balanceView.Initialize(totalBalanceController);
     }
 
     private void StartGame()
@@ -50,7 +45,8 @@ public class GameManager : MonoBehaviour
         businessSystem.SpawnBusiness(_businessModels);
     }
 
-    public void SaveGame()
+    [UsedImplicitly]
+    public void ExitWithSaving()
     {
         var businesModels = _configSystem.GetBuisnessModels();
 
@@ -63,11 +59,19 @@ public class GameManager : MonoBehaviour
         EditorApplication.isPlaying = false;
     }
 
-    public void NewGame()
+    [UsedImplicitly]
+    public void ExitWithoutSaving()
     {
         _json.Delete();
         businessSystem.DeleteControllers();
         EditorApplication.isPlaying = false;
-        // StartGame();
+    }
+
+    [UsedImplicitly]
+    public void NewGame()
+    {
+        _json.Delete();
+        businessSystem.DeleteControllers();
+        StartGame();
     }
 }
