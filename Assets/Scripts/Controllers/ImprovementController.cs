@@ -49,7 +49,7 @@ namespace Controllers
 
         private void Update()
         {
-            _improvementView.View(_improvementModel.Name,_improvementModel.Price,_improvementModel.Boost);
+            _improvementView.View(_improvementModel.Name, _improvementModel.Price, _improvementModel.Boost);
         }
     }
 }

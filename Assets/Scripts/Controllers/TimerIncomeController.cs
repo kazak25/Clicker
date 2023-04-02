@@ -14,11 +14,6 @@ namespace GameView
         private BusinessModel _model;
         private float _timer;
 
-        private void Start()
-        {
-            //_delayIncomeView.Initialize(_model.GetDelayIncome);
-        }
-
         public void Initialize(BusinessModel model)
         {
             _model = model;
@@ -26,7 +21,7 @@ namespace GameView
 
         private void Update()
         {
-            _delayIncomeView.UpdateSlider(_model,_model.GetDelayIncome);
+            _delayIncomeView.UpdateSlider(_model, _model.GetDelayIncome);
         }
     }
 }

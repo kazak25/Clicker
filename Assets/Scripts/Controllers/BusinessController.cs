@@ -17,7 +17,7 @@ namespace Controllers
         [SerializeField] private TimerIncomeController timerIncomeController;
         [SerializeField] private ImprovementController[] _improvementControllers;
         [SerializeField] private BusinessView _businessView;
-        
+
         private ConfigSystem _configSystem;
         private CompositeDisposable _subscription;
         private ProfitSystem _profitSystem;
@@ -73,7 +73,7 @@ namespace Controllers
         {
             _profitSystem.ChangeIncome(Model, _configSystem, _improvementControllers);
         }
-        
+
         public void ChangeCurrentIncome()
         {
             _profitSystem.ChangeCurrentIncome(Model, _configSystem, _improvementControllers);

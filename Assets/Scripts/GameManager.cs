@@ -66,12 +66,4 @@ public class GameManager : MonoBehaviour
         businessSystem.DeleteControllers();
         EditorApplication.isPlaying = false;
     }
-
-    [UsedImplicitly]
-    public void NewGame()
-    {
-        _json.Delete();
-        businessSystem.DeleteControllers();
-        StartGame();
-    }
 }
