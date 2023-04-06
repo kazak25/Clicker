@@ -17,16 +17,16 @@ public class DelayIncomeView : MonoBehaviour
     public void UpdateSlider(BusinessModel model,float maxValue)
     {
         _slider.maxValue = maxValue;
-        if (model.GetCurrentLevel == 0)
+        if (model.CurentLevel == 0)
         {
             return;
         }
 
         _timer += Time.deltaTime;
         _slider.value = _timer;
-        if (_timer >= model.GetDelayIncome)
+        if (_timer >= model.DelayIncome)
         {
-            var eventDataRequest = new GetIncomeEvent(model.GetCurrentIncome);
+            var eventDataRequest = new GetIncomeEvent(model.CurrentIncome);
             EventStream.Game.Publish(eventDataRequest);
             _timer = 0;
         }

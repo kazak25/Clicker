@@ -21,7 +21,7 @@ namespace GameView
 
         private void Update()
         {
-            _delayIncomeView.UpdateSlider(_model, _model.GetDelayIncome);
+            _delayIncomeView.UpdateSlider(_model, _model.DelayIncome);
         }
     }
 }

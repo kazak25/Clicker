@@ -11,25 +11,27 @@ using UnityEngine;
 
 public class ProfitSystem : MonoBehaviour
 {
-   [SerializeField] private TotalBalanceController _totalBalanceController;
+   [SerializeField] private BalanceSystem _balanceSystem;
     public void ChangeIncome(BusinessModel model, ConfigSystem configSystem,ImprovementController[] improvementControllers)
     {
-        if (_totalBalanceController.GetBalance() < model.GetCurrentLevelPrice) return;
+        if (_balanceSystem.GetBalance() < model.CurrentLevelPrice) return;
         if (model.isLevelClick)
         {
             model.ChangeLEvel();
             model.ResetLevelClick();
         }
-
-        _totalBalanceController.DecreaseTotalBalance(model.GetCurrentLevelPrice);
+        
+        var eventDataRequest = new GetDecreaseEvent(model.CurrentLevelPrice);
+        EventStream.Game.Publish(eventDataRequest);
+        
         ChangeCurrentIncome(model,configSystem,improvementControllers);
-        var newLevelPrice = configSystem.GetNewLevelPrice(model.GetCurrentLevel, model.GetBasicPrice);
+        var newLevelPrice = ConfigMath.GetNewLevelPrice(model.CurentLevel, model.BasicPrice);
         model.ChangeLevelPrice(newLevelPrice);
     }
 
     public void ChangeCurrentIncome(BusinessModel model, ConfigSystem configSystem,ImprovementController[] improvementControllers)
     {
-        var newIncome = configSystem.RecalculationIncome(model.GetCurrentLevel, model.GetBasicPrice,
+        var newIncome = ConfigMath.RecalculationIncome(model.CurentLevel, model.BasicPrice,
             improvementControllers);
         model.ChangeProfit(newIncome);
     }

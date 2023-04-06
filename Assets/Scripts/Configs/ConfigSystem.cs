@@ -1,4 +1,3 @@
-using Controllers;
 using Models;
 using ScriptableObjects;
 using UnityEngine;
@@ -11,35 +10,33 @@ namespace Configs
 
         private BusinessModel[] _businessModels;
         private ImprovementModel[] _improvementModels;
+
         public void CreateBusinessModels()
         {
             _businessModels = new BusinessModel[businessConfigCollection.ConfigBusinessModel.Length];
 
             for (var i = 0; i < businessConfigCollection.ConfigBusinessModel.Length; i++)
             {
-                var businessName = businessConfigCollection.ConfigBusinessModel[i].Name;
-                var incomeDelay = businessConfigCollection.ConfigBusinessModel[i].IncomeDelay;
-                var level = businessConfigCollection.ConfigBusinessModel[i].Level;
-                var income = businessConfigCollection.ConfigBusinessModel[i].Income;
-                var price = businessConfigCollection.ConfigBusinessModel[i].Price;
-                
+                var business = businessConfigCollection.ConfigBusinessModel[i];
                 var businessImproves = CreateBusinessImproveModels(i);
 
-                _businessModels[i] = new BusinessModel(businessName, incomeDelay, level, income, income, price, businessImproves);
+                _businessModels[i] = new BusinessModel(business.Name, business.IncomeDelay, business.Level,
+                    business.Income, business.Income, business.Price, businessImproves);
             }
         }
+
         private ImprovementModel[] CreateBusinessImproveModels(int index)
         {
-            var businessImproves = new ImprovementModel[businessConfigCollection.ConfigBusinessModel[index].TypesImprovement.Length];
-            for (var j = 0; j < businessImproves.Length; j++)
-            {
-                var businessImproveName = businessConfigCollection.ConfigBusinessModel[index].TypesImprovement[j].Name;
-                var businessImprovePrice = businessConfigCollection.ConfigBusinessModel[index].TypesImprovement[j].Price;
-                var businessImproveBoostIncome = businessConfigCollection.ConfigBusinessModel[index].TypesImprovement[j].BoostIncome;
-                var businessImproveIsPurchased = businessConfigCollection.ConfigBusinessModel[index].TypesImprovement[j].IsPurchased;
+            var businessModel = businessConfigCollection.ConfigBusinessModel[index];
+            var typesImprovement = businessModel.TypesImprovement;
+            var businessImproves = new ImprovementModel[typesImprovement.Length];
 
-                businessImproves[j] = new ImprovementModel(businessImproveName, businessImprovePrice,
-                    businessImproveBoostIncome, businessImproveIsPurchased);
+            for (var j = 0; j < typesImprovement.Length; j++)
+            {
+                var typeImprovement = typesImprovement[j];
+                var businessImprove = new ImprovementModel(typeImprovement.Name, typeImprovement.Price,
+                    typeImprovement.BoostIncome, typeImprovement.IsPurchased);
+                businessImproves[j] = businessImprove;
             }
 
             return businessImproves;
@@ -48,25 +45,6 @@ namespace Configs
         public BusinessModel[] GetBuisnessModels()
         {
             return _businessModels;
-        }
-
-        public int GetNewLevelPrice(float level, float basicPrice)
-        {
-            var newLevelPrice = (1 + level) * basicPrice;
-            return (int)newLevelPrice;
-        }
-    
-        public int RecalculationIncome(float level, float basicIncome, ImprovementController[] improvements)
-        {
-       
-            var firstImprovementBoost =
-                improvements[0].GetImprovementModel.IsBought ? improvements[0].GetImprovementModel.Boost : 0;
-            var secondImprovementBoost =
-                improvements[1].GetImprovementModel.IsBought ? improvements[0].GetImprovementModel.Boost : 0;
-        
-            var newIncome = level * basicIncome * (1 + firstImprovementBoost + secondImprovementBoost);
-        
-            return (int)newIncome;
         }
     }
 }

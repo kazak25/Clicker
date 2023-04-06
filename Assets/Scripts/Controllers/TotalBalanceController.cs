@@ -10,53 +10,29 @@ namespace Systems
     {
         [SerializeField] private BalanceView _balanceView;
         [SerializeField] private ProfitSystem _profitSystem;
-
-        private float _totalBalance;
+        [SerializeField] private BalanceSystem _balanceSystem;
+        
         private CompositeDisposable _subscription;
-
-        public void IncreaseProfit(GetIncomeEvent data)
-        {
-            _totalBalance += data.Profit;
-        }
-
+        
         private void Start()
         {
             var eventDataRequest = new GetProfitEvent(this, _profitSystem);
             EventStream.Game.Publish(eventDataRequest);
-            _subscription = new CompositeDisposable()
-            {
-                EventStream.Game.Subscribe<GetIncomeEvent>(IncreaseProfit),
-            };
         }
-
-        public void Initialize(float newBalance)
-        {
-            _totalBalance = newBalance;
-        }
-
-        public float GetBalance()
-        {
-            return _totalBalance;
-        }
-
-        public void ResetBalance()
-        {
-            _totalBalance = 0f;
-        }
-
-        public void DecreaseTotalBalance(float price)
-        {
-            _totalBalance -= price;
-        }
-
+        
         private void OnDestroy()
         {
             _subscription?.Dispose();
         }
 
+        public float GetBalance()
+        {
+            return _balanceSystem.GetBalance();
+        }
+
         private void Update()
         {
-            _balanceView.View(this);
+            _balanceView.View(_balanceSystem.GetBalance());
         }
     }
 }

@@ -10,7 +10,7 @@ using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private TotalBalanceController totalBalanceController;
+    [SerializeField] private BalanceSystem totalBalanceController;
     [SerializeField] private ConfigSystem _configSystem;
     [SerializeField] private BusinessSystem businessSystem;
 

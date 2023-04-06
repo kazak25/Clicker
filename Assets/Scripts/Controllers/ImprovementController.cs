@@ -36,7 +36,6 @@ namespace Controllers
                 return;
             }
 
-            Debug.Log(_totalBalanceController == null);
             if (_totalBalanceController.GetBalance() < _improvementModel.Price)
             {
                 return;
@@ -44,7 +43,9 @@ namespace Controllers
 
             _improvementModel.ChangeCondition();
             _businessController.ChangeCurrentIncome();
-            _totalBalanceController.DecreaseTotalBalance(_improvementModel.Price);
+            
+            var eventDataRequest = new GetDecreaseEvent(_improvementModel.Price);
+            EventStream.Game.Publish(eventDataRequest);
         }
 
         private void Update()

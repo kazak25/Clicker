@@ -53,7 +53,7 @@ namespace Controllers
 
         private void OnStart()
         {
-            var newLevelPrice = _configSystem.GetNewLevelPrice(Model.GetCurrentLevel, Model.GetBasicPrice);
+            var newLevelPrice = ConfigMath.GetNewLevelPrice(Model.CurentLevel, Model.BasicPrice);
             Model.ChangeLevelPrice(newLevelPrice);
         }
 
@@ -86,8 +86,8 @@ namespace Controllers
 
         private void Update()
         {
-            _businessView.View(Model.GetName, Model.GetCurrentLevel, Model.GetCurrentIncome,
-                Model.GetCurrentLevelPrice);
+            _businessView.View(Model.Name, Model.CurentLevel, Model.CurrentIncome,
+                Model.CurrentLevelPrice);
         }
     }
 }

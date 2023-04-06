@@ -5,13 +5,13 @@ namespace Models
     [Serializable]
     public class BusinessModel
     {
-        public string GetName { get; set; }
-        public float GetDelayIncome { get; set; }
-        public float GetBasicPrice { get; set; }
-        public float GetBaseIncome { get; set; }
-        public float GetCurrentIncome { get; set; }
-        public float GetCurrentLevel { get; set; }
-        public float GetCurrentLevelPrice { get; set; }
+        public string Name { get; set; }
+        public float DelayIncome { get; set; }
+        public float BasicPrice { get; set; }
+        public float BaseIncome { get; set; }
+        public float CurrentIncome { get; set; }
+        public float CurentLevel { get; set; }
+        public float CurrentLevelPrice { get; set; }
 
         public  ImprovementModel[] GetImprovemnts;
 
@@ -21,12 +21,12 @@ namespace Models
         public BusinessModel(string name, float incomeDelay, float currentLevel, float baseIncome, float currentIncome,
             float basicPrice, ImprovementModel[] improvementModels)
         {
-            GetName = name;
-            GetDelayIncome = incomeDelay;
-            GetCurrentLevel = currentLevel;
-            GetBaseIncome = baseIncome;
-            GetCurrentIncome = currentIncome;
-            GetBasicPrice = basicPrice;
+            Name = name;
+            DelayIncome = incomeDelay;
+            CurentLevel = currentLevel;
+            BaseIncome = baseIncome;
+            CurrentIncome = currentIncome;
+            BasicPrice = basicPrice;
             GetImprovemnts = improvementModels;
         }
 
@@ -40,17 +40,17 @@ namespace Models
         }
         public void ChangeProfit(int newProfit)
         {
-            GetCurrentIncome = newProfit;
+            CurrentIncome = newProfit;
         }
 
         public void ChangeLevelPrice(int newPrice)
         {
-            GetCurrentLevelPrice = newPrice;
+            CurrentLevelPrice = newPrice;
         }
 
         public void ChangeLEvel()
         {
-            GetCurrentLevel++;
+            CurentLevel++;
         }
     }
 }
