@@ -7,8 +7,8 @@ public class GetDecreaseEvent : EventBase
 {
     public float Lesion { get; }
 
-    public GetDecreaseEvent(float Lesion)
+    public GetDecreaseEvent(float lesion)
     {
-        Lesion = Lesion;
+        Lesion = lesion;
     }
 }

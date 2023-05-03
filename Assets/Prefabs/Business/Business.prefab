@@ -1306,7 +1306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ffcb4e6eef3cd5469461e76765bbf8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 4329165008678648537}
   _delayIncomeView: {fileID: 793493339696872287}
 --- !u!114 &-337215286349847857
 MonoBehaviour:
@@ -1786,9 +1785,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8663427374805505496}
+      - m_Target: {fileID: 4329165007716396767}
         m_TargetAssemblyTypeName: BusinessController, Assembly-CSharp
-        m_MethodName: GetLevelPrice
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2481,7 +2480,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.332
+  m_Value: 0.31
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
